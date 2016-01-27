@@ -21,7 +21,10 @@ public class ApplicationTest {
     public void setUp() throws Exception {
         console = mock(ConsolePrinter.class);
         inOrder = inOrder(console);
-        bookRepository = new BookRepository();
+
+        Book algebra = new Book("book1", "algebra", "author1", "2012");
+        Book computer = new Book("book2", "computer", "author2", "2013");
+        bookRepository = new BookRepository(Arrays.asList(algebra, computer));
         app = new Application(console, bookRepository);
     }
 
@@ -34,10 +37,6 @@ public class ApplicationTest {
 
     @Test
     public void console_should_display_book_list_after_welcome_message() throws Exception {
-        Book algebra = new Book("book1", "algebra", "author1", "2012");
-        Book computer = new Book("book2", "computer", "author2", "2013");
-        bookRepository.addBooks(Arrays.asList(algebra, computer));
-
         app.start();
 
         inOrder.verify(console, times(1)).print("The Books in library as follow:");

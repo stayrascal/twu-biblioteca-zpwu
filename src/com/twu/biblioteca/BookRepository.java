@@ -1,16 +1,14 @@
 package com.twu.biblioteca;
 
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class BookRepository {
 
-    private final List<Book> bookRepository = new ArrayList<Book>();
+    private final List<Book> bookRepository;
 
-    public void addBooks(List<Book> books) {
-        bookRepository.addAll(books);
+    public BookRepository(List<Book> bookRepository) {
+        this.bookRepository = bookRepository;
     }
 
     public List<Book> getBooks() {

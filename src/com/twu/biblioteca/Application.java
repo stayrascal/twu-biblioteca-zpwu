@@ -1,7 +1,5 @@
 package com.twu.biblioteca;
 
-import java.util.List;
-
 public class Application {
 
     private ConsolePrinter console;
