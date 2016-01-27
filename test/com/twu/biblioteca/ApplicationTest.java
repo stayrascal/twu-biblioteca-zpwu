@@ -34,14 +34,14 @@ public class ApplicationTest {
 
     @Test
     public void console_should_display_book_list_after_welcome_message() throws Exception {
-        Book algebra = new Book("algebra", "author1", "2012");
-        Book computer = new Book("computer", "author2", "2013");
+        Book algebra = new Book("book1", "algebra", "author1", "2012");
+        Book computer = new Book("book2", "computer", "author2", "2013");
         bookRepository.addBooks(Arrays.asList(algebra, computer));
 
         app.start();
 
         inOrder.verify(console, times(1)).print("The Books in library as follow:");
-        inOrder.verify(console, times(1)).print("1. algebra author1 2012");
-        inOrder.verify(console, times(1)).print("2. computer author2 2013");
+        inOrder.verify(console, times(1)).print("book1 algebra author1 2012");
+        inOrder.verify(console, times(1)).print("book2 computer author2 2013");
     }
 }
