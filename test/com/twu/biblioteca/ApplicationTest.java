@@ -7,6 +7,8 @@ import org.mockito.InOrder;
 
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.mockito.Mockito.*;
 
@@ -14,7 +16,6 @@ public class ApplicationTest {
 
     private ConsolePrinter console;
     private Application app;
-    private BookRepository bookRepository;
     private InOrder inOrder;
 
     @Before
@@ -24,12 +25,17 @@ public class ApplicationTest {
 
         Book algebra = new Book("book1", "algebra", "author1", "2012");
         Book computer = new Book("book2", "computer", "author2", "2013");
-        bookRepository = new BookRepository(Arrays.asList(algebra, computer));
-        app = new Application(console, bookRepository);
+        BookRepository bookRepository = new BookRepository(Arrays.asList(algebra, computer));
+
+        Menu listBooksMenu = new Menu(1, "List Books");
+        Map<Integer, Menu> menuMap = new HashMap<Integer, Menu>();
+        menuMap.put(listBooksMenu.getId(), listBooksMenu);
+
+        app = new Application(console, bookRepository, menuMap);
     }
 
     @Test
-    public void console_should_display_welcome_message() throws Exception {
+    public void console_should_display_welcome_message_when_start_application() throws Exception {
         app.start();
 
         inOrder.verify(console, times(1)).print("Welcome to Bangalore Public Library");
@@ -42,5 +48,14 @@ public class ApplicationTest {
         inOrder.verify(console, times(1)).print("The Books in library as follow:");
         inOrder.verify(console, times(1)).print("book1 algebra author1 2012");
         inOrder.verify(console, times(1)).print("book2 computer author2 2013");
+    }
+
+    @Test
+    public void console_should_display_main_menu_information_when_start_application() throws Exception {
+
+        app.startByMenu();
+
+        inOrder.verify(console, times(1)).print("Please choose options as follow:");
+        inOrder.verify(console, times(1)).print("1 List Books");
     }
 }
