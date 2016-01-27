@@ -60,11 +60,12 @@ public class ApplicationTest {
         inOrder.verify(console, times(1)).print("1 List Books");
     }
 
-   /* @Test
+    @Test
     public void console_should_notified_select_a_valid_opetion_when_customer_choose_wrong() throws Exception {
 
-
+        app.validateInput("2");
         inOrder.verify(console, times(1)).print("Please select a valid option!");
+    }
 
-    }*/
+
 }

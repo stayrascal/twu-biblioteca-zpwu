@@ -41,4 +41,16 @@ public class Application {
     private void displayWelcomeMessage() {
         console.print("Welcome to Bangalore Public Library");
     }
+
+    public void validateInput(String command) {
+        for (String key : menuMap.keySet()) {
+            if (key.equals(command)) {
+                excute(command);
+            }
+        }
+        console.print("Please select a valid option!");
+    }
+
+    private void excute(String command) {
+    }
 }
