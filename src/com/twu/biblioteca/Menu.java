@@ -3,15 +3,15 @@ package com.twu.biblioteca;
 
 public class Menu {
 
-    private final int id;
+    private final String id;
     private final String name;
 
-    public Menu(int id, String name) {
+    public Menu(String id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -21,6 +21,6 @@ public class Menu {
 
     @Override
     public String toString() {
-        return String.format("%d %s", getId(), getName());
+        return String.format("%s %s", getId(), getName());
     }
 }

@@ -20,6 +20,7 @@ public class ApplicationTest {
 
     @Before
     public void setUp() throws Exception {
+
         console = mock(ConsolePrinter.class);
         inOrder = inOrder(console);
 
@@ -27,8 +28,8 @@ public class ApplicationTest {
         Book computer = new Book("book2", "computer", "author2", "2013");
         BookRepository bookRepository = new BookRepository(Arrays.asList(algebra, computer));
 
-        Menu listBooksMenu = new Menu(1, "List Books");
-        Map<Integer, Menu> menuMap = new HashMap<Integer, Menu>();
+        Menu listBooksMenu = new Menu("1", "List Books");
+        Map<String, Menu> menuMap = new HashMap<String, Menu>();
         menuMap.put(listBooksMenu.getId(), listBooksMenu);
 
         app = new Application(console, bookRepository, menuMap);
@@ -58,4 +59,12 @@ public class ApplicationTest {
         inOrder.verify(console, times(1)).print("Please choose options as follow:");
         inOrder.verify(console, times(1)).print("1 List Books");
     }
+
+   /* @Test
+    public void console_should_notified_select_a_valid_opetion_when_customer_choose_wrong() throws Exception {
+
+
+        inOrder.verify(console, times(1)).print("Please select a valid option!");
+
+    }*/
 }

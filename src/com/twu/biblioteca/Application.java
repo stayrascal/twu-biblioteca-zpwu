@@ -6,9 +6,9 @@ public class Application {
 
     private ConsolePrinter console;
     private BookRepository bookRepository;
-    private Map<Integer, Menu> menuMap;
+    private Map<String, Menu> menuMap;
 
-    public Application(ConsolePrinter console, BookRepository bookRepository, Map<Integer, Menu> menuMap) {
+    public Application(ConsolePrinter console, BookRepository bookRepository, Map<String, Menu> menuMap) {
         this.console = console;
         this.bookRepository = bookRepository;
         this.menuMap = menuMap;
