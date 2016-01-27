@@ -13,12 +13,20 @@ public class Application {
     }
 
     public void start() {
-        console.print("Welcome to Bangalore Public Library");
+        displayWelcomeMessage();
+        displayBookListInfo();
+    }
+
+    private void displayBookListInfo() {
         console.print("The Books in library as follow:");
         List<Book> books = bookRepository.getBooks();
         for (int i = 0; i < books.size(); i++) {
             Book book = books.get(i);
             console.print(String.format("%d. %s", i + 1, book.toString()));
         }
+    }
+
+    private void displayWelcomeMessage() {
+        console.print("Welcome to Bangalore Public Library");
     }
 }
