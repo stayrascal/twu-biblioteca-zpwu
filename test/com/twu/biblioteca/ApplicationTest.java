@@ -1,15 +1,16 @@
 package com.twu.biblioteca;
 
 
+import com.twu.biblioteca.option.*;
+import com.twu.biblioteca.option.Option;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InOrder;
 
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
+import static java.util.Arrays.asList;
 import static org.mockito.Mockito.*;
 
 public class ApplicationTest {
@@ -26,13 +27,15 @@ public class ApplicationTest {
 
         Book algebra = new Book("book1", "algebra", "author1", "2012");
         Book computer = new Book("book2", "computer", "author2", "2013");
-        BookRepository bookRepository = new BookRepository(Arrays.asList(algebra, computer));
+        BookRepository bookRepository = new BookRepository(asList(algebra, computer));
 
-        Menu listBooksMenu = new Menu("1", "List Books");
-        Map<String, Menu> menuMap = new HashMap<String, Menu>();
-        menuMap.put(listBooksMenu.getId(), listBooksMenu);
+        ListBooksOption listBooks = new ListBooksOption("1", "List Books");
+        CheckoutBookOption checkoutBook = new CheckoutBookOption("2", "Checkout Book");
+        ReturnBookOption returnBook = new ReturnBookOption("3", "Return Book");
+        QuitOption quit = new QuitOption("4", "Quit");
+        List<Option> menu = asList(listBooks, checkoutBook, returnBook, quit);
 
-        app = new Application(console, bookRepository, menuMap);
+        app = new Application(console, bookRepository, menu);
     }
 
     @Test
@@ -58,12 +61,15 @@ public class ApplicationTest {
 
         inOrder.verify(console, times(1)).print("Please choose options as follow:");
         inOrder.verify(console, times(1)).print("1 List Books");
+        inOrder.verify(console, times(1)).print("2 Checkout Book");
+        inOrder.verify(console, times(1)).print("3 Return Book");
+        inOrder.verify(console, times(1)).print("4 Quit");
     }
 
     @Test
     public void console_should_notified_select_a_valid_opetion_when_customer_choose_wrong() throws Exception {
 
-        app.validateInput("2");
+        app.validateInput("5");
         inOrder.verify(console, times(1)).print("Please select a valid option!");
     }
 

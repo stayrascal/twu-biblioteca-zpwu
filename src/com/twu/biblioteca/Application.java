@@ -1,17 +1,19 @@
 package com.twu.biblioteca;
 
-import java.util.Map;
+import java.util.List;
+
+import com.twu.biblioteca.option.Option;
 
 public class Application {
 
     private ConsolePrinter console;
     private BookRepository bookRepository;
-    private Map<String, Menu> menuMap;
+    private List<Option> menu;
 
-    public Application(ConsolePrinter console, BookRepository bookRepository, Map<String, Menu> menuMap) {
+    public Application(ConsolePrinter console, BookRepository bookRepository, List<com.twu.biblioteca.option.Option> menu) {
         this.console = console;
         this.bookRepository = bookRepository;
-        this.menuMap = menuMap;
+        this.menu = menu;
     }
 
     public void start() {
@@ -26,12 +28,12 @@ public class Application {
 
     private void displayMenusInfo() {
         console.print("Please choose options as follow:");
-        for (Menu menu : menuMap.values()) {
-            console.print(menu.toString());
+        for (com.twu.biblioteca.option.Option option : menu) {
+            console.print(option.toString());
         }
     }
 
-    private void displayBookListInfo() {
+    public void displayBookListInfo() {
         console.print("The Books in library as follow:");
         for (Book book : bookRepository.getBooks()) {
             console.print(book.toString());
@@ -43,14 +45,21 @@ public class Application {
     }
 
     public void validateInput(String command) {
-        for (String key : menuMap.keySet()) {
-            if (key.equals(command)) {
-                excute(command);
+        for (Option option : menu) {
+            if (option.getId().equals(command)) {
+                option.execute(this);
             }
         }
         console.print("Please select a valid option!");
     }
 
-    private void excute(String command) {
+    public void exit() {
+
+    }
+
+    public void disPlayAvailableBooks() {
+    }
+
+    public void displayCanReturnBooks() {
     }
 }

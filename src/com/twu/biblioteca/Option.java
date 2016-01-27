@@ -1,12 +1,12 @@
 package com.twu.biblioteca;
 
 
-public class Menu {
+public class Option {
 
     private final String id;
     private final String name;
 
-    public Menu(String id, String name) {
+    public Option(String id, String name) {
         this.id = id;
         this.name = name;
     }
