@@ -18,6 +18,7 @@ public class ApplicationTest {
     private ConsolePrinter console;
     private Application app;
     private InOrder inOrder;
+    private Set<Book> customerBooks;
 
     @Before
     public void setUp() throws Exception {
@@ -30,7 +31,7 @@ public class ApplicationTest {
         BookList bookList = new BookList(asList(algebra, computer));
         BookRepository bookRepository = new BookRepository(asList(new BookStock(algebra, 1), new BookStock(computer, 1)));
 
-        Set<Book> customerBooks = new TreeSet<>();
+        customerBooks = new TreeSet<>();
         List<Option> menu = initializeMenu();
 
         app = new Application(console, bookList, bookRepository, customerBooks, menu);
@@ -115,13 +116,21 @@ public class ApplicationTest {
 
     @Test
     public void console_should_display_books_that_coustomer_can_return_when_choose_return_book_option() throws Exception {
-        app.checkoutBook(1);
-        app.checkoutBook(2);
+        customerBooks.add(new Book(1, "algebra", "author1", "2012"));
+        customerBooks.add(new Book(2, "computer", "author2", "2013"));
         app.displayCanReturnBooks();
 
         inOrder.verify(console, times(1)).print("which book do you want return:");
         inOrder.verify(console, times(1)).print("1 algebra author1 2012");
         inOrder.verify(console, times(1)).print("2 computer author2 2013");
 
+    }
+
+    @Test
+    public void console_should_display_successful_message_when_return_book_success() throws Exception {
+        customerBooks.add(new Book(1, "algebra", "author1", "2012"));
+        app.returnBook(1);
+
+        inOrder.verify(console, times(1)).print("Thank you for returning the book.");
     }
 }

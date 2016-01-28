@@ -79,4 +79,13 @@ public class Application {
         });
         console.print("That book is not available.");
     }
+
+    public void returnBook(int isbn) {
+        bookRepository.getAvailableBooks().stream().filter(bookStock -> bookStock.getBook().getIsbn().equals(isbn)).forEach(bookStock -> {
+            bookStock.returnOneBook();
+            customerBooks.remove(bookStock.getBook());
+            console.print("Thank you for returning the book.");
+        });
+        console.print("That is not a valid book to return.");
+    }
 }
