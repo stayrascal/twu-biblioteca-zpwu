@@ -37,16 +37,19 @@ public class Application {
     }
 
     public void validateInput(int input) {
-        boolean isValid = false;
-        for (Option option : menu) {
-            if (option.getId().equals(input)) {
-                isValid = true;
-                option.execute(this);
-            }
-        }
-        if (!isValid) {
+        if (!optionIsValid(input)) {
             console.print("Please select a valid option!");
         }
+    }
+
+    private boolean optionIsValid(int input) {
+        for (Option option : menu) {
+            if (option.getId().equals(input)) {
+                option.execute(this);
+                return true;
+            }
+        }
+        return false;
     }
 
     public void displayMenusInfo() {
