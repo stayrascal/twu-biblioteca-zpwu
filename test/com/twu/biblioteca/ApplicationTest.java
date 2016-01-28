@@ -104,6 +104,15 @@ public class ApplicationTest {
         inOrder.verify(console, times(1)).print("That book is not available.");
     }
 
+    @Test
+    public void console_should_display_right_message_after_checkout_success_and_chose_checkout_book_option() throws Exception {
+        app.checkoutBook(1);
+        app.disPlayAvailableBooks();
+
+        inOrder.verify(console, times(1)).print("which book do you want check out:");
+        inOrder.verify(console, times(1)).print("2 computer author2 2013");
+    }
+
     /*@Test
     public void console_should_display_books_that_coustomer_can_return_when_choose_return_book_option() throws Exception {
         app.displayCanReturnBooks();
