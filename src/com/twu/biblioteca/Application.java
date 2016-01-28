@@ -12,7 +12,7 @@ public class Application {
     private BookRepository bookRepository;
     private Set<Book> customerBooks;
     private List<Option> menu;
-    private Boolean flag = Boolean.TRUE;
+    private Boolean isContinue = Boolean.TRUE;
 
     public Application(Console console, BookList bookList, BookRepository bookRepository, Set<Book> customerBooks, List<Option> menu) {
         this.console = console;
@@ -30,7 +30,7 @@ public class Application {
 
     public void startByMenu() {
         displayWelcomeMessage();
-        while (flag) {
+        while (isContinue) {
             displayMenusInfo();
             validateInput(console.nextInt());
         }
@@ -97,9 +97,7 @@ public class Application {
         for (BookStock bookStock : bookRepository.getBooks()) {
             if (bookStock.getBook().getIsbn().equals(isbn)) {
                 isValid = true;
-                if (!customerBooks.remove(bookStock.getBook())) {
-                    console.print("That is not a valid book to return.");
-                }
+                removeBookFromCustomerBooks(bookStock.getBook());
                 bookStock.returnOneBook();
                 console.print("Thank you for returning the book.");
             }
@@ -109,12 +107,18 @@ public class Application {
         }
     }
 
+    private void removeBookFromCustomerBooks(Book book) {
+        if (!customerBooks.remove(book)) {
+            console.print("That is not a valid book to return.");
+        }
+    }
+
     private void displayWelcomeMessage() {
         console.print("Welcome to Bangalore Public Library!");
     }
 
     public void exit() {
-        flag = Boolean.FALSE;
+        isContinue = Boolean.FALSE;
         console.print("Thank you come to Bangalore Public Library, goodbye!");
     }
 }

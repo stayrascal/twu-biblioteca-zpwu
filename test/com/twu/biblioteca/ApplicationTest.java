@@ -32,9 +32,8 @@ public class ApplicationTest {
         BookRepository bookRepository = new BookRepository(asList(new BookStock(algebra, 1), new BookStock(computer, 1)));
 
         customerBooks = new TreeSet<>();
-        List<Option> menu = initializeMenu();
 
-        app = new Application(console, bookList, bookRepository, customerBooks, menu);
+        app = new Application(console, bookList, bookRepository, customerBooks, initializeMenu());
         when(console.nextInt()).thenReturn(1);
     }
 
