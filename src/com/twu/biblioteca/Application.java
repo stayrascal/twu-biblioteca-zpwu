@@ -67,6 +67,8 @@ public class Application {
     }
 
     public void displayCanReturnBooks() {
+        console.print("which book do you want return:");
+        customerBooks.forEach(book -> console.print(book.toString()));
     }
 
     public void checkoutBook(int isbn) {

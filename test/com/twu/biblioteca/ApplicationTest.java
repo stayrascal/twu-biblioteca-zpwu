@@ -113,13 +113,15 @@ public class ApplicationTest {
         inOrder.verify(console, times(1)).print("2 computer author2 2013");
     }
 
-    /*@Test
+    @Test
     public void console_should_display_books_that_coustomer_can_return_when_choose_return_book_option() throws Exception {
+        app.checkoutBook(1);
+        app.checkoutBook(2);
         app.displayCanReturnBooks();
 
-        inOrder.verify(console, times(1)).print("which book do you want check out:");
-        inOrder.verify(console, times(1)).print("book1 algebra author1 2012");
-        inOrder.verify(console, times(1)).print("book2 computer author2 2013");
+        inOrder.verify(console, times(1)).print("which book do you want return:");
+        inOrder.verify(console, times(1)).print("1 algebra author1 2012");
+        inOrder.verify(console, times(1)).print("2 computer author2 2013");
 
-    }*/
+    }
 }
