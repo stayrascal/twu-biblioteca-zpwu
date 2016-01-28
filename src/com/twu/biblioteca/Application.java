@@ -7,11 +7,13 @@ import com.twu.biblioteca.option.Option;
 public class Application {
 
     private ConsolePrinter console;
+    private BookList bookList;
     private BookRepository bookRepository;
     private List<Option> menu;
 
-    public Application(ConsolePrinter console, BookRepository bookRepository, List<com.twu.biblioteca.option.Option> menu) {
+    public Application(ConsolePrinter console, BookList bookList, BookRepository bookRepository, List<Option> menu) {
         this.console = console;
+        this.bookList = bookList;
         this.bookRepository = bookRepository;
         this.menu = menu;
     }
@@ -35,7 +37,7 @@ public class Application {
 
     public void displayBookListInfo() {
         console.print("The Books in library as follow:");
-        for (Book book : bookRepository.getBooks()) {
+        for (Book book : bookList.getBooks()) {
             console.print(book.toString());
         }
     }
@@ -58,6 +60,10 @@ public class Application {
     }
 
     public void disPlayAvailableBooks() {
+        console.print("which book do you want check out:");
+        for (BookStock bookStock : bookRepository.getAvailableBooks()) {
+            console.print(bookStock.getBook().toString());
+        }
     }
 
     public void displayCanReturnBooks() {

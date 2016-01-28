@@ -27,7 +27,8 @@ public class ApplicationTest {
 
         Book algebra = new Book("book1", "algebra", "author1", "2012");
         Book computer = new Book("book2", "computer", "author2", "2013");
-        BookRepository bookRepository = new BookRepository(asList(algebra, computer));
+        BookList bookList = new BookList(asList(algebra, computer));
+        BookRepository bookRepository = new BookRepository(asList(new BookStock(algebra, 1), new BookStock(computer, 1)));
 
         ListBooksOption listBooks = new ListBooksOption("1", "List Books");
         CheckoutBookOption checkoutBook = new CheckoutBookOption("2", "Checkout Book");
@@ -35,7 +36,7 @@ public class ApplicationTest {
         QuitOption quit = new QuitOption("4", "Quit");
         List<Option> menu = asList(listBooks, checkoutBook, returnBook, quit);
 
-        app = new Application(console, bookRepository, menu);
+        app = new Application(console, bookList, bookRepository, menu);
     }
 
     @Test
@@ -73,5 +74,12 @@ public class ApplicationTest {
         inOrder.verify(console, times(1)).print("Please select a valid option!");
     }
 
+    @Test
+    public void console_should_display_can_checkout_book_list_when_customer_choose_checkout_book_option() throws Exception {
 
+        app.disPlayAvailableBooks();
+        inOrder.verify(console, times(1)).print("which book do you want check out:");
+        inOrder.verify(console, times(1)).print("book1 algebra author1 2012");
+        inOrder.verify(console, times(1)).print("book2 computer author2 2013");
+    }
 }
