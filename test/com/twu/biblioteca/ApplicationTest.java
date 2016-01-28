@@ -154,4 +154,13 @@ public class ApplicationTest {
         inOrder.verify(console, times(1)).print("2 computer author2 2013");
 
     }
+
+    @Test
+    public void console_should_display_thank_message_when_customer_choose_quit_option() throws Exception {
+
+        app.exit();
+
+        inOrder.verify(console, times(1)).print("Thank you come to Bangalore Public Library, goodbye!");
+
+    }
 }

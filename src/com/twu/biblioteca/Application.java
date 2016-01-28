@@ -56,7 +56,7 @@ public class Application {
     }
 
     public void exit() {
-
+        console.print("Thank you come to Bangalore Public Library, goodbye!");
     }
 
     public void disPlayAvailableBooks() {
