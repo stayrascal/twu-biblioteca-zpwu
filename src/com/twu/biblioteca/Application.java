@@ -102,28 +102,31 @@ public class Application {
             console.print("Sorry, there is no book can been return!");
         } else {
             console.print("Which book do you want return:");
-            printCustomerBooksAndDealReturnBookImput();
+            printCustomerBooksAndDealReturnBookInput();
         }
     }
 
-    private void printCustomerBooksAndDealReturnBookImput() {
+    private void printCustomerBooksAndDealReturnBookInput() {
         customerBooks.forEach(book -> console.print(book.toString()));
         returnBook(console.nextInt());
     }
 
     public void returnBook(int isbn) {
-        boolean isValid = false;
+        if (!isReturnBookSuccessful(isbn)) {
+            console.print("That is not a valid book to return.");
+        }
+    }
+
+    private boolean isReturnBookSuccessful(int isbn) {
         for (BookStock bookStock : bookRepository.getBooks()) {
             if (bookStock.getBook().getIsbn().equals(isbn)) {
-                isValid = true;
                 removeBookFromCustomerBooks(bookStock.getBook());
                 bookStock.returnOneBook();
                 console.print("Thank you for returning the book.");
+                return true;
             }
         }
-        if (!isValid) {
-            console.print("That is not a valid book to return.");
-        }
+        return false;
     }
 
     private void removeBookFromCustomerBooks(Book book) {

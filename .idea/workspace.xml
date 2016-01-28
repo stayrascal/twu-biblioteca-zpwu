@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="453ea46c-eb6f-484f-96f0-75fa217b5830" name="Default" comment="[ stayrascal ] refactor extract method printAvailableBooksAndDealCheckoutBookInput&#10;">
+    <list default="true" id="453ea46c-eb6f-484f-96f0-75fa217b5830" name="Default" comment="[ stayrascal ] refactor extract method isCheckoutBookSuccessful&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Application.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Application.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -52,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Application.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.50987434">
-              <caret line="87" column="44" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="44" />
+              <caret line="119" column="42" selection-start-line="119" selection-start-column="20" selection-end-line="119" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -686,7 +686,7 @@
       <created>1453899512750</created>
       <option name="number" value="Default" />
       <updated>1453899512750</updated>
-      <workItem from="1453899510928" duration="38506000" />
+      <workItem from="1453899510928" duration="38624000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1453899738695</created>
@@ -862,11 +862,17 @@
       <option name="project" value="LOCAL" />
       <updated>1453990176553</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="[ stayrascal ] refactor extract method isCheckoutBookSuccessful&#10;">
+      <created>1453990382587</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1453990382587</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38506000" />
+    <option name="totallyTimeSpent" value="38624000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1378" height="745" extended-state="0" />
@@ -940,7 +946,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[ stayrascal ] complete the test case about get book list" />
     <MESSAGE value="[ stayrascal ] refactor extract method displayWelcomeMessage and displayBookListInfo" />
     <MESSAGE value="[ stayrascal ] add a attribute called isbn into book" />
     <MESSAGE value="[ stayrascal ] remove method addBooks in BookRepository, using DI to initialize book data" />
@@ -965,7 +970,8 @@
     <MESSAGE value="[ stayrascal ] add .idea folder" />
     <MESSAGE value="[ stayrascal ] add workspace.xml&#10;" />
     <MESSAGE value="[ stayrascal ] refactor extract method printAvailableBooksAndDealCheckoutBookInput&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="[ stayrascal ] refactor extract method printAvailableBooksAndDealCheckoutBookInput&#10;" />
+    <MESSAGE value="[ stayrascal ] refactor extract method isCheckoutBookSuccessful&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ stayrascal ] refactor extract method isCheckoutBookSuccessful&#10;" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1199,7 +1205,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.50987434">
-          <caret line="87" column="44" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="44" />
+          <caret line="119" column="42" selection-start-line="119" selection-start-column="20" selection-end-line="119" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
