@@ -25,18 +25,23 @@ public class ApplicationTest {
         console = mock(ConsolePrinter.class);
         inOrder = inOrder(console);
 
-        Book algebra = new Book("book1", "algebra", "author1", "2012");
-        Book computer = new Book("book2", "computer", "author2", "2013");
+        Book algebra = new Book("1", "algebra", "author1", "2012");
+        Book computer = new Book("2", "computer", "author2", "2013");
         BookList bookList = new BookList(asList(algebra, computer));
         BookRepository bookRepository = new BookRepository(asList(new BookStock(algebra, 1), new BookStock(computer, 1)));
 
+        Set<Book> customerBooks = new HashSet<>();
+        List<Option> menu = initializeMenu();
+
+        app = new Application(console, bookList, bookRepository, customerBooks, menu);
+    }
+
+    private List<Option> initializeMenu() {
         ListBooksOption listBooks = new ListBooksOption("1", "List Books");
         CheckoutBookOption checkoutBook = new CheckoutBookOption("2", "Checkout Book");
         ReturnBookOption returnBook = new ReturnBookOption("3", "Return Book");
         QuitOption quit = new QuitOption("4", "Quit");
-        List<Option> menu = asList(listBooks, checkoutBook, returnBook, quit);
-
-        app = new Application(console, bookList, bookRepository, menu);
+        return asList(listBooks, checkoutBook, returnBook, quit);
     }
 
     @Test
@@ -51,8 +56,8 @@ public class ApplicationTest {
         app.start();
 
         inOrder.verify(console, times(1)).print("The Books in library as follow:");
-        inOrder.verify(console, times(1)).print("book1 algebra author1 2012");
-        inOrder.verify(console, times(1)).print("book2 computer author2 2013");
+        inOrder.verify(console, times(1)).print("1 algebra author1 2012");
+        inOrder.verify(console, times(1)).print("2 computer author2 2013");
     }
 
     @Test
@@ -76,10 +81,28 @@ public class ApplicationTest {
 
     @Test
     public void console_should_display_can_checkout_book_list_when_customer_choose_checkout_book_option() throws Exception {
-
         app.disPlayAvailableBooks();
+
+        inOrder.verify(console, times(1)).print("which book do you want check out:");
+        inOrder.verify(console, times(1)).print("1 algebra author1 2012");
+        inOrder.verify(console, times(1)).print("2 computer author2 2013");
+    }
+
+    @Test
+    public void console_should_display_successful_message_when_customer_checkout_book_success() throws Exception {
+
+        app.checkoutBook("1");
+
+        inOrder.verify(console, times(1)).print("Thank you! Enjoy the book!");
+    }
+
+    /*@Test
+    public void console_should_display_books_that_coustomer_can_return_when_choose_return_book_option() throws Exception {
+        app.displayCanReturnBooks();
+
         inOrder.verify(console, times(1)).print("which book do you want check out:");
         inOrder.verify(console, times(1)).print("book1 algebra author1 2012");
         inOrder.verify(console, times(1)).print("book2 computer author2 2013");
-    }
+
+    }*/
 }

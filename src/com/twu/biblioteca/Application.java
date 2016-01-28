@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import java.util.List;
+import java.util.Set;
 
 import com.twu.biblioteca.option.Option;
 
@@ -9,14 +10,17 @@ public class Application {
     private ConsolePrinter console;
     private BookList bookList;
     private BookRepository bookRepository;
+    private Set<Book> customerBooks;
     private List<Option> menu;
 
-    public Application(ConsolePrinter console, BookList bookList, BookRepository bookRepository, List<Option> menu) {
+    public Application(ConsolePrinter console, BookList bookList, BookRepository bookRepository, Set<Book> customerBooks, List<Option> menu) {
         this.console = console;
         this.bookList = bookList;
         this.bookRepository = bookRepository;
+        this.customerBooks = customerBooks;
         this.menu = menu;
     }
+
 
     public void start() {
         displayWelcomeMessage();
@@ -47,11 +51,7 @@ public class Application {
     }
 
     public void validateInput(String command) {
-        for (Option option : menu) {
-            if (option.getId().equals(command)) {
-                option.execute(this);
-            }
-        }
+        menu.stream().filter(option -> option.getId().equals(command)).forEach(option -> option.execute(this));
         console.print("Please select a valid option!");
     }
 
@@ -67,5 +67,14 @@ public class Application {
     }
 
     public void displayCanReturnBooks() {
+    }
+
+    public void checkoutBook(String isbn) {
+        bookRepository.getAvailableBooks().stream().filter(bookStock -> bookStock.getBook().getIsbn().equals(isbn)).forEach(bookStock -> {
+            bookStock.checkoutOne();
+            customerBooks.add(bookStock.getBook());
+            console.print("Thank you! Enjoy the book!");
+        });
+        console.print("That book is not available.");
     }
 }
