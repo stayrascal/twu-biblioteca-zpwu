@@ -80,18 +80,21 @@ public class Application {
     }
 
     public void checkoutBook(int isbn) {
-        boolean isValid = false;
+        if (!isCheckoutBookSuccessful(isbn)) {
+            console.print("That book is not available.");
+        }
+    }
+
+    private boolean isCheckoutBookSuccessful(int isbn) {
         for (BookStock bookStock : bookRepository.getAvailableBooks()) {
             if (bookStock.getBook().getIsbn().equals(isbn)) {
-                isValid = true;
                 bookStock.checkoutOne();
                 customerBooks.add(bookStock.getBook());
                 console.print("Thank you! Enjoy the book!");
+                return true;
             }
         }
-        if (!isValid) {
-            console.print("That book is not available.");
-        }
+        return false;
     }
 
     public void displayCanReturnBooks() {
