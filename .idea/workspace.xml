@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="453ea46c-eb6f-484f-96f0-75fa217b5830" name="Default" comment="[ stayrascal ] hidden out folder">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/junit_4_11.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    <list default="true" id="453ea46c-eb6f-484f-96f0-75fa217b5830" name="Default" comment="[ stayrascal ] add .idea folder">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="biblioteca.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -567,7 +555,7 @@
       <created>1453899512750</created>
       <option name="number" value="Default" />
       <updated>1453899512750</updated>
-      <workItem from="1453899510928" duration="32108000" />
+      <workItem from="1453899510928" duration="32165000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1453899738695</created>
@@ -725,11 +713,17 @@
       <option name="project" value="LOCAL" />
       <updated>1453973305910</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="[ stayrascal ] add .idea folder">
+      <created>1453973364989</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1453973364989</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32108000" />
+    <option name="totallyTimeSpent" value="32165000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1378" height="745" extended-state="0" />
@@ -803,7 +797,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial commit" />
     <MESSAGE value="[ stayrascal ] complete the test case about seeing a welcome message when start application" />
     <MESSAGE value="[ stayrascal ] rename method from should_display_welcome_message to console_should_display_welcome_message" />
     <MESSAGE value="[ stayrascal ] complete the test case about get book list" />
@@ -828,7 +821,8 @@
     <MESSAGE value="[ stayrascal ] add Main.java" />
     <MESSAGE value="[ stayrascal ] refactor extract method revoceBookFromCustomerBooks" />
     <MESSAGE value="[ stayrascal ] hidden out folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="[ stayrascal ] hidden out folder" />
+    <MESSAGE value="[ stayrascal ] add .idea folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ stayrascal ] add .idea folder" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
