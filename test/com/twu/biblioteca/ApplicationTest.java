@@ -133,4 +133,14 @@ public class ApplicationTest {
 
         inOrder.verify(console, times(1)).print("Thank you for returning the book.");
     }
+
+    @Test
+    public void console_should_display_notified_message_when_customer_return_invalid_book() throws Exception {
+        customerBooks.add(new Book(1, "algebra", "author1", "2012"));
+        app.returnBook(2);
+
+        inOrder.verify(console, times(1)).print("That is not a valid book to return.");
+    }
+
+
 }
