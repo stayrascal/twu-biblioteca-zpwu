@@ -8,8 +8,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="junit-4.11" level="project" />
-    <orderEntry type="module-library">
+    <orderEntry type="library" scope="TEST" name="junit-4.11" level="project" />
+    <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/mockito-core-1.10.19.jar!/" />
@@ -20,7 +20,7 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/mockito-all-1.10.19.jar!/" />
