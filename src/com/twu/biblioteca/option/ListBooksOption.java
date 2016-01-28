@@ -5,7 +5,7 @@ import com.twu.biblioteca.Application;
 
 public class ListBooksOption extends Option {
 
-    public ListBooksOption(String id, String name) {
+    public ListBooksOption(Integer id, String name) {
         super(id, name);
     }
 

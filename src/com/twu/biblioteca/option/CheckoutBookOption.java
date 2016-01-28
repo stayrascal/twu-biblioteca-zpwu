@@ -4,7 +4,7 @@ import com.twu.biblioteca.Application;
 
 public class CheckoutBookOption extends Option {
 
-    public CheckoutBookOption(String id, String name) {
+    public CheckoutBookOption(Integer id, String name) {
         super(id, name);
     }
 

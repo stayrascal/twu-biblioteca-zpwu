@@ -15,7 +15,7 @@ import static org.mockito.Mockito.*;
 
 public class ApplicationTest {
 
-    private ConsolePrinter console;
+    private Console console;
     private Application app;
     private InOrder inOrder;
     private Set<Book> customerBooks;
@@ -23,7 +23,7 @@ public class ApplicationTest {
     @Before
     public void setUp() throws Exception {
 
-        console = mock(ConsolePrinter.class);
+        console = mock(Console.class);
         inOrder = inOrder(console);
 
         Book algebra = new Book(1, "algebra", "author1", "2012");
@@ -35,13 +35,14 @@ public class ApplicationTest {
         List<Option> menu = initializeMenu();
 
         app = new Application(console, bookList, bookRepository, customerBooks, menu);
+        when(console.nextInt()).thenReturn(1);
     }
 
     private List<Option> initializeMenu() {
-        ListBooksOption listBooks = new ListBooksOption("1", "List Books");
-        CheckoutBookOption checkoutBook = new CheckoutBookOption("2", "Checkout Book");
-        ReturnBookOption returnBook = new ReturnBookOption("3", "Return Book");
-        QuitOption quit = new QuitOption("4", "Quit");
+        ListBooksOption listBooks = new ListBooksOption(1, "List Books");
+        CheckoutBookOption checkoutBook = new CheckoutBookOption(2, "Checkout Book");
+        ReturnBookOption returnBook = new ReturnBookOption(3, "Return Book");
+        QuitOption quit = new QuitOption(4, "Quit");
         return asList(listBooks, checkoutBook, returnBook, quit);
     }
 
@@ -49,7 +50,7 @@ public class ApplicationTest {
     public void console_should_display_welcome_message_when_start_application() throws Exception {
         app.start();
 
-        inOrder.verify(console, times(1)).print("Welcome to Bangalore Public Library");
+        inOrder.verify(console, times(1)).print("Welcome to Bangalore Public Library!");
     }
 
     @Test
@@ -64,7 +65,7 @@ public class ApplicationTest {
     @Test
     public void console_should_display_main_menu_information_when_start_application() throws Exception {
 
-        app.startByMenu();
+        app.displayMenusInfo();
 
         inOrder.verify(console, times(1)).print("Please choose options as follow:");
         inOrder.verify(console, times(1)).print("1 List Books");
@@ -76,7 +77,7 @@ public class ApplicationTest {
     @Test
     public void console_should_notified_select_a_valid_opetion_when_customer_choose_wrong() throws Exception {
 
-        app.validateInput("5");
+        app.validateInput(5);
         inOrder.verify(console, times(1)).print("Please select a valid option!");
     }
 

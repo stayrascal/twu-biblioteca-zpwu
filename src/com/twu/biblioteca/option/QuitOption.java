@@ -4,7 +4,7 @@ import com.twu.biblioteca.Application;
 
 public class QuitOption extends Option {
 
-    public QuitOption(String id, String name) {
+    public QuitOption(Integer id, String name) {
         super(id, name);
     }
 

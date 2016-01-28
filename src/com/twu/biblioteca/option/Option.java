@@ -5,15 +5,15 @@ import com.twu.biblioteca.Application;
 
 public abstract class Option {
 
-    protected final String id;
+    protected final Integer id;
     protected final String name;
 
-    public Option(String id, String name) {
+    public Option(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -22,7 +22,7 @@ public abstract class Option {
     }
 
     public String toString() {
-        return String.format("%s %s", getId(), getName());
+        return String.format("%d %s", getId(), getName());
     }
 
     public abstract void execute(Application app);
