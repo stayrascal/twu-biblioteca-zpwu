@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="453ea46c-eb6f-484f-96f0-75fa217b5830" name="Default" comment="[ stayrascal ] add .idea folder">
+    <list default="true" id="453ea46c-eb6f-484f-96f0-75fa217b5830" name="Default" comment="[ stayrascal ] add workspace.xml&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="biblioteca.iws" />
@@ -555,7 +555,7 @@
       <created>1453899512750</created>
       <option name="number" value="Default" />
       <updated>1453899512750</updated>
-      <workItem from="1453899510928" duration="32165000" />
+      <workItem from="1453899510928" duration="32211000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1453899738695</created>
@@ -719,14 +719,20 @@
       <option name="project" value="LOCAL" />
       <updated>1453973364989</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="[ stayrascal ] add workspace.xml&#10;">
+      <created>1453973422676</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1453973422676</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32165000" />
+    <option name="totallyTimeSpent" value="32211000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1378" height="745" extended-state="0" />
+    <frame x="-7" y="0" width="1378" height="745" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -797,7 +803,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[ stayrascal ] complete the test case about seeing a welcome message when start application" />
     <MESSAGE value="[ stayrascal ] rename method from should_display_welcome_message to console_should_display_welcome_message" />
     <MESSAGE value="[ stayrascal ] complete the test case about get book list" />
     <MESSAGE value="[ stayrascal ] refactor extract method displayWelcomeMessage and displayBookListInfo" />
@@ -822,7 +827,8 @@
     <MESSAGE value="[ stayrascal ] refactor extract method revoceBookFromCustomerBooks" />
     <MESSAGE value="[ stayrascal ] hidden out folder" />
     <MESSAGE value="[ stayrascal ] add .idea folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="[ stayrascal ] add .idea folder" />
+    <MESSAGE value="[ stayrascal ] add workspace.xml&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ stayrascal ] add workspace.xml&#10;" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
