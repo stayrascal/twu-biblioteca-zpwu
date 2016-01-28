@@ -84,7 +84,7 @@ public class ApplicationTest {
     public void console_should_display_can_checkout_book_list_when_customer_choose_checkout_book_option() throws Exception {
         app.disPlayAvailableBooks();
 
-        inOrder.verify(console, times(1)).print("which book do you want check out:");
+        inOrder.verify(console, times(1)).print("Which book do you want check out:");
         inOrder.verify(console, times(1)).print("1 algebra author1 2012");
         inOrder.verify(console, times(1)).print("2 computer author2 2013");
     }
@@ -110,7 +110,7 @@ public class ApplicationTest {
         app.checkoutBook(1);
         app.disPlayAvailableBooks();
 
-        inOrder.verify(console, times(1)).print("which book do you want check out:");
+        inOrder.verify(console, times(1)).print("Which book do you want check out:");
         inOrder.verify(console, times(1)).print("2 computer author2 2013");
     }
 
@@ -120,7 +120,7 @@ public class ApplicationTest {
         customerBooks.add(new Book(2, "computer", "author2", "2013"));
         app.displayCanReturnBooks();
 
-        inOrder.verify(console, times(1)).print("which book do you want return:");
+        inOrder.verify(console, times(1)).print("Which book do you want return:");
         inOrder.verify(console, times(1)).print("1 algebra author1 2012");
         inOrder.verify(console, times(1)).print("2 computer author2 2013");
 
@@ -150,7 +150,7 @@ public class ApplicationTest {
 
         app.displayCanReturnBooks();
 
-        inOrder.verify(console, times(1)).print("which book do you want return:");
+        inOrder.verify(console, times(1)).print("Which book do you want return:");
         inOrder.verify(console, times(1)).print("2 computer author2 2013");
 
     }

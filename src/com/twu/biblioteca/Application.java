@@ -51,7 +51,7 @@ public class Application {
 
     public void displayMenusInfo() {
         console.print("Please choose options as follow:");
-        for (com.twu.biblioteca.option.Option option : menu) {
+        for (Option option : menu) {
             console.print(option.toString());
         }
     }
@@ -64,7 +64,15 @@ public class Application {
     }
 
     public void disPlayAvailableBooks() {
-        console.print("which book do you want check out:");
+        if (bookRepository.getAvailableBooks().size() < 1) {
+            console.print("Sorry, there is no book can been checkout!");
+        } else {
+            console.print("Which book do you want check out:");
+            printAvailableBooksAndDealCheckoutBookInput();
+        }
+    }
+
+    private void printAvailableBooksAndDealCheckoutBookInput() {
         for (BookStock bookStock : bookRepository.getAvailableBooks()) {
             console.print(bookStock.getBook().toString());
         }
@@ -87,7 +95,15 @@ public class Application {
     }
 
     public void displayCanReturnBooks() {
-        console.print("which book do you want return:");
+        if (customerBooks.size() < 1) {
+            console.print("Sorry, there is no book can been return!");
+        } else {
+            console.print("Which book do you want return:");
+            printCustomerBooksAndDealReturnBookImput();
+        }
+    }
+
+    private void printCustomerBooksAndDealReturnBookImput() {
         customerBooks.forEach(book -> console.print(book.toString()));
         returnBook(console.nextInt());
     }
