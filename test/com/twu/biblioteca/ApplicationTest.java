@@ -142,5 +142,16 @@ public class ApplicationTest {
         inOrder.verify(console, times(1)).print("That is not a valid book to return.");
     }
 
+    @Test
+    public void console_should_display_other_book_that_can_be_return_after_return_one_and_choose_return_book() throws Exception {
+        customerBooks.add(new Book(1, "algebra", "author1", "2012"));
+        customerBooks.add(new Book(2, "computer", "author2", "2013"));
+        app.returnBook(1);
 
+        app.displayCanReturnBooks();
+
+        inOrder.verify(console, times(1)).print("which book do you want return:");
+        inOrder.verify(console, times(1)).print("2 computer author2 2013");
+
+    }
 }
