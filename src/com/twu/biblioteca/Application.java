@@ -69,7 +69,7 @@ public class Application {
     public void displayCanReturnBooks() {
     }
 
-    public void checkoutBook(String isbn) {
+    public void checkoutBook(int isbn) {
         bookRepository.getAvailableBooks().stream().filter(bookStock -> bookStock.getBook().getIsbn().equals(isbn)).forEach(bookStock -> {
             bookStock.checkoutOne();
             customerBooks.add(bookStock.getBook());
