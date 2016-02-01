@@ -32,4 +32,12 @@ public class UserCenterTest {
         assertEquals(userCenter.login(user.getUserName(), user.getPassword()), true);
         assertEquals(userCenter.getLoginedUserSet().size(), 1);
     }
+
+    @Test
+    public void should_return_false_when_login_success() throws Exception {
+
+        assertEquals(userCenter.login(user.getUserName(), "wrong password"), false);
+        assertEquals(userCenter.login("not exist user", user.getPassword()), false);
+        assertEquals(userCenter.getLoginedUserSet().size(), 0);
+    }
 }
