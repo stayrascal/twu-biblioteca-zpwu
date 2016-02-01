@@ -9,7 +9,7 @@ public class UserTest {
     @Test
     public void should_return_right_user_information() throws Exception {
 
-        User user = new User("name", "password", "email address", "phone number");
+        User user = new User("xxx-xxxx", "name", "password", "email address", "phone number");
 
         assertEquals(user.getUserName(), "name");
         assertEquals(user.getPassword(), "password");

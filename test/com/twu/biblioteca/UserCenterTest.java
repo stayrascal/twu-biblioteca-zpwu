@@ -3,7 +3,6 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.Collections;
 
 import static org.junit.Assert.assertEquals;
@@ -15,7 +14,7 @@ public class UserCenterTest {
 
     @Before
     public void setUp() throws Exception {
-        user = new User("name", "password", "email", "phone");
+        user = new User("xxx-xxxx", "name", "password", "email", "phone");
         userCenter = new UserCenter(Collections.singletonList(user));
 
     }
@@ -29,14 +28,14 @@ public class UserCenterTest {
     @Test
     public void should_return_true_when_login_success() throws Exception {
 
-        assertEquals(userCenter.login(user.getUserName(), user.getPassword()), true);
+        assertEquals(userCenter.login(user.getLibraryNumber(), user.getPassword()), true);
         assertEquals(userCenter.getLoginedUserSet().size(), 1);
     }
 
     @Test
     public void should_return_false_when_login_success() throws Exception {
 
-        assertEquals(userCenter.login(user.getUserName(), "wrong password"), false);
+        assertEquals(userCenter.login(user.getLibraryNumber(), "wrong password"), false);
         assertEquals(userCenter.login("not exist user", user.getPassword()), false);
         assertEquals(userCenter.getLoginedUserSet().size(), 0);
     }
