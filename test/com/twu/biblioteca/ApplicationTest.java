@@ -33,6 +33,9 @@ public class ApplicationTest {
 
         customerBooks = new TreeSet<>();
 
+        User user = new User("xxx-xxxx", "name", "password", "email", "phone");
+        UserCenter userCenter = new UserCenter(Collections.singletonList(user));
+
         app = new Application(console, bookList, bookRepository, customerBooks, initializeMenu());
         when(console.nextInt()).thenReturn(1);
     }
@@ -161,6 +164,7 @@ public class ApplicationTest {
         app.exit();
 
         inOrder.verify(console, times(1)).print("Thank you come to Bangalore Public Library, goodbye!");
-
     }
+
+
 }

@@ -34,6 +34,14 @@ public class ConsoleTest {
     }
 
     @Test
+    public void the_input_from_customer_should_be_string_1_when_input_1() throws Exception {
+        when(reader.readLine()).thenReturn("1");
+
+        assertEquals(console.nextLine(), "1");
+
+    }
+
+    @Test
     public void console_should_print_message_in_right_way() throws Exception {
 
         console.print("1234");
