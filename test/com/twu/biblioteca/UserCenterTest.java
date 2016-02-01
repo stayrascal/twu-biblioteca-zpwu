@@ -1,20 +1,35 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 import static org.junit.Assert.assertEquals;
 
 public class UserCenterTest {
 
+    private UserCenter userCenter;
+    private User user;
+
+    @Before
+    public void setUp() throws Exception {
+        user = new User("name", "password", "email", "phone");
+        userCenter = new UserCenter(Collections.singletonList(user));
+
+    }
+
     @Test
     public void the_user_list_size_should_be_one_when_add_one_user() throws Exception {
-        User user = new User("name", "password", "email", "phone");
-
-        UserCenter userCenter = new UserCenter(Arrays.asList(user));
-
         assertEquals(userCenter.getUserList().size(), 1);
         assertEquals(userCenter.getUserList().get(0), user);
+    }
+
+    @Test
+    public void should_return_true_when_login_success() throws Exception {
+
+        assertEquals(userCenter.login(user.getUserName(), user.getPassword()), true);
+        assertEquals(userCenter.getLoginedUserSet().size(), 1);
     }
 }
