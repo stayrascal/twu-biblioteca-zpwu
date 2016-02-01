@@ -6,6 +6,7 @@ import com.twu.biblioteca.option.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -27,7 +28,10 @@ public class Main {
         Set<Book> customerBooks = new TreeSet<>();
         List<Option> menu = main.initializeMenu();
 
-        Application app = new Application(console, bookList, bookRepository, customerBooks, menu);
+        User user = new User("xxx-xxxx", "name", "password", "email", "phone");
+        UserCenter userCenter = new UserCenter(Collections.singletonList(user));
+
+        Application app = new Application(userCenter, console, bookList, bookRepository, customerBooks, menu);
 
         app.startByMenu();
     }

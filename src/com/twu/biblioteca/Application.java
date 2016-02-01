@@ -7,6 +7,7 @@ import java.util.Set;
 
 public class Application {
 
+    private UserCenter userCenter;
     private Console console;
     private BookList bookList;
     private BookRepository bookRepository;
@@ -14,7 +15,8 @@ public class Application {
     private List<Option> menu;
     private Boolean isContinue = Boolean.TRUE;
 
-    public Application(Console console, BookList bookList, BookRepository bookRepository, Set<Book> customerBooks, List<Option> menu) {
+    public Application(UserCenter userCenter, Console console, BookList bookList, BookRepository bookRepository, Set<Book> customerBooks, List<Option> menu) {
+        this.userCenter = userCenter;
         this.console = console;
         this.bookList = bookList;
         this.bookRepository = bookRepository;
@@ -145,5 +147,21 @@ public class Application {
     public void exit() {
         isContinue = Boolean.FALSE;
         console.print("Thank you come to Bangalore Public Library, goodbye!");
+    }
+
+    public boolean login() {
+        console.print("Please input your library number:");
+        String libraryNumber = console.nextLine();
+
+        console.print("Please input your password:");
+        String password = console.nextLine();
+
+        if (userCenter.login(libraryNumber, password)) {
+            console.print("login success");
+            return true;
+        } else {
+            console.print("login failure");
+            return false;
+        }
     }
 }

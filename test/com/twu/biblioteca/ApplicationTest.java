@@ -11,6 +11,7 @@ import org.mockito.InOrder;
 import java.util.*;
 
 import static java.util.Arrays.asList;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class ApplicationTest {
@@ -19,6 +20,8 @@ public class ApplicationTest {
     private Application app;
     private InOrder inOrder;
     private Set<Book> customerBooks;
+    private User user;
+    private UserCenter userCenter;
 
     @Before
     public void setUp() throws Exception {
@@ -33,10 +36,10 @@ public class ApplicationTest {
 
         customerBooks = new TreeSet<>();
 
-        User user = new User("xxx-xxxx", "name", "password", "email", "phone");
-        UserCenter userCenter = new UserCenter(Collections.singletonList(user));
+        user = new User("xxx-xxxx", "name", "password", "email", "phone");
+        userCenter = new UserCenter(Collections.singletonList(user));
 
-        app = new Application(console, bookList, bookRepository, customerBooks, initializeMenu());
+        app = new Application(userCenter, console, bookList, bookRepository, customerBooks, initializeMenu());
         when(console.nextInt()).thenReturn(1);
     }
 
@@ -166,5 +169,15 @@ public class ApplicationTest {
         inOrder.verify(console, times(1)).print("Thank you come to Bangalore Public Library, goodbye!");
     }
 
+    @Test
+    public void console_should_display_right_information_when_customer_login() throws Exception {
 
+        when(console.nextLine()).thenReturn(user.getLibraryNumber(), user.getPassword());
+
+        assertEquals(app.login(), true);
+
+        inOrder.verify(console, times(1)).print("Please input your library number:");
+        inOrder.verify(console, times(1)).print("Please input your password:");
+        inOrder.verify(console, times(1)).print("login success");
+    }
 }
