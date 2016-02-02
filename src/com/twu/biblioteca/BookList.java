@@ -16,4 +16,11 @@ public class BookList {
     public Set<Book> getBooks() {
         return books;
     }
+
+    public void displayBookListInfo(Console console) {
+        console.print("The Books in library as follow:");
+        for (Book book : books) {
+            console.print(book.toString());
+        }
+    }
 }
