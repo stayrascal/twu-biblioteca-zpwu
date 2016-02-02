@@ -68,10 +68,7 @@ public class Application {
     }
 
     public void displayBookListInfo() {
-        console.print("The Books in library as follow:");
-        for (Book book : bookRepository.getBookList().getBooks()) {
-            console.print(book.toString());
-        }
+        bookRepository.displayBookListInfo(console);
     }
 
     public void disPlayAvailableBooks() {

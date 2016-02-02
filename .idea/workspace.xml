@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="453ea46c-eb6f-484f-96f0-75fa217b5830" name="Default" comment="[ stayrascal ] add test case about login in application">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Role.java" />
+    <list default="true" id="453ea46c-eb6f-484f-96f0-75fa217b5830" name="Default" comment="[ stayrascal ] refactor move field bookList from application to bookRepository">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Application.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/ApplicationTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/ApplicationTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/BookRepository.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BookRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/BookRepositoryTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/BookRepositoryTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Main.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/UserCenter.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/UserCenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/UserCenterTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/UserCenterTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="biblioteca.iws" />
@@ -48,9 +42,12 @@
       <file leaf-file-name="Application.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.039848197">
-              <caret line="64" column="32" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
-              <folding />
+            <state vertical-scroll-proportion="0.36242884">
+              <caret line="70" column="30" selection-start-line="70" selection-start-column="30" selection-end-line="70" selection-end-column="30" />
+              <folding>
+                <element signature="e#1974#1975#0" expanded="true" />
+                <element signature="e#2033#2034#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -59,11 +56,23 @@
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BookRepository.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="24" />
+              <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#438#439#0" expanded="true" />
                 <element signature="e#469#470#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BookList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -85,10 +94,10 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding>
-                <element signature="e#131#132#0" expanded="true" />
-                <element signature="e#165#166#0" expanded="true" />
-                <element signature="e#194#195#0" expanded="true" />
-                <element signature="e#222#223#0" expanded="true" />
+                <element signature="e#130#131#0" expanded="true" />
+                <element signature="e#164#165#0" expanded="true" />
+                <element signature="e#193#194#0" expanded="true" />
+                <element signature="e#221#222#0" expanded="true" />
                 <element signature="e#255#256#0" expanded="true" />
                 <element signature="e#293#294#0" expanded="true" />
               </folding>
@@ -149,10 +158,10 @@
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/UserCenter.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/UserCenterTest.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/Role.java" />
-        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/BookRepository.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/ApplicationTest.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/Main.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/BookRepositoryTest.java" />
+        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/BookRepository.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/Application.java" />
       </list>
     </option>
@@ -677,7 +686,7 @@
       <option name="number" value="Default" />
       <updated>1453899512750</updated>
       <workItem from="1453899510928" duration="39493000" />
-      <workItem from="1454330961644" duration="10393000" />
+      <workItem from="1454330961644" duration="10673000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1453899738695</created>
@@ -913,11 +922,17 @@
       <option name="project" value="LOCAL" />
       <updated>1454337014504</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="[ stayrascal ] refactor move field bookList from application to bookRepository">
+      <created>1454424003566</created>
+      <option name="number" value="00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1454424003566</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49886000" />
+    <option name="totallyTimeSpent" value="50166000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1378" height="745" extended-state="0" />
@@ -991,7 +1006,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[ stayrascal ] complete the test case about display notified message when checkout book failure" />
     <MESSAGE value="[ stayrascal ] complete the test case about display other book message when checkout one and choose checkout book option" />
     <MESSAGE value="[ stayrascal ] complete the test case about display book list that can be returned" />
     <MESSAGE value="[ stayrascal ] complete the test case about return book success" />
@@ -1016,7 +1030,8 @@
     <MESSAGE value="[ stayrascal ] add attribute libraryNumber into user&#10;" />
     <MESSAGE value="[ stayrascal ] add test case about get string when customer input" />
     <MESSAGE value="[ stayrascal ] add test case about login in application" />
-    <option name="LAST_COMMIT_MESSAGE" value="[ stayrascal ] add test case about login in application" />
+    <MESSAGE value="[ stayrascal ] refactor move field bookList from application to bookRepository" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ stayrascal ] refactor move field bookList from application to bookRepository" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1049,7 +1064,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1974#1975#0" expanded="true" />
+            <element signature="e#2033#2034#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1298,10 +1316,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
-            <element signature="e#131#132#0" expanded="true" />
-            <element signature="e#165#166#0" expanded="true" />
-            <element signature="e#194#195#0" expanded="true" />
-            <element signature="e#222#223#0" expanded="true" />
+            <element signature="e#130#131#0" expanded="true" />
+            <element signature="e#164#165#0" expanded="true" />
+            <element signature="e#193#194#0" expanded="true" />
+            <element signature="e#221#222#0" expanded="true" />
             <element signature="e#255#256#0" expanded="true" />
             <element signature="e#293#294#0" expanded="true" />
           </folding>
@@ -1313,28 +1331,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BookList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2639138">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BookRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#438#439#0" expanded="true" />
-            <element signature="e#469#470#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1364,11 +1360,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BookList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BookRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#469#470#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.039848197">
-          <caret line="64" column="32" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
-          <folding />
+        <state vertical-scroll-proportion="0.36242884">
+          <caret line="70" column="30" selection-start-line="70" selection-start-column="30" selection-end-line="70" selection-end-column="30" />
+          <folding>
+            <element signature="e#1974#1975#0" expanded="true" />
+            <element signature="e#2033#2034#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

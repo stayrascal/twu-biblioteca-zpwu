@@ -27,4 +27,11 @@ public class BookRepository {
     public List<BookStock> getAvailableBooks() {
         return bookRepository.stream().filter(BookStock::isCanCheckout).collect(Collectors.toCollection(ArrayList::new));
     }
+
+    public void displayBookListInfo(Console console) {
+        console.print("The Books in library as follow:");
+        for (Book book : bookList.getBooks()) {
+            console.print(book.toString());
+        }
+    }
 }
