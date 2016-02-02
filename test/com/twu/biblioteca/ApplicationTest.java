@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.option.*;
 import com.twu.biblioteca.option.Option;
+import com.twu.biblioteca.role.Librarian;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InOrder;
@@ -179,5 +180,23 @@ public class ApplicationTest {
         inOrder.verify(console, times(1)).print("Please input your library number:");
         inOrder.verify(console, times(1)).print("Please input your password:");
         inOrder.verify(console, times(1)).print("login success");
+    }
+
+    @Test
+    public void console_should_display_five_option_when_librarian_login() throws Exception {
+        User user = new User("xxx-xxxx", "name", "password", "email", "phone", new Librarian());
+        UserCenter userCenter = new UserCenter(Collections.singletonList(user));
+
+        app = new Application(userCenter, console, null, customerBooks, user);
+
+        app.displayMenusInfo();
+
+        inOrder.verify(console, times(1)).print("Please choose options as follow:");
+        inOrder.verify(console, times(1)).print("1 List Books");
+        inOrder.verify(console, times(1)).print("2 Checkout Book");
+        inOrder.verify(console, times(1)).print("3 Return Book");
+        inOrder.verify(console, times(1)).print("4 Show checkouted book");
+        inOrder.verify(console, times(1)).print("5 Quit");
+
     }
 }
