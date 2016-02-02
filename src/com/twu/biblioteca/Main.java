@@ -31,7 +31,7 @@ public class Main {
         User user = new User("xxx-xxxx", "name", "password", "email", "phone");
         UserCenter userCenter = new UserCenter(Collections.singletonList(user));
 
-        Application app = new Application(userCenter, console, bookRepository, customerBooks, menu);
+        Application app = new Application(userCenter, console, bookRepository, customerBooks, user);
 
         app.startByMenu();
     }

@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public enum Role {
+public enum RoleEnum {
 
     LIBRARIAN(1),
 
@@ -8,7 +8,7 @@ public enum Role {
 
     private int index;
 
-    Role(int index) {
+    RoleEnum(int index) {
         this.index = index;
     }
 

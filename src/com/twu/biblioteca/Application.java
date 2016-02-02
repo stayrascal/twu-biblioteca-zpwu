@@ -11,22 +11,19 @@ public class Application {
     private Console console;
     private BookRepository bookRepository;
     private Set<Book> customerBooks;
-    private List<Option> menu;
     private Boolean isContinue = Boolean.FALSE;
-    private Role role = Role.CUSTOMER;
-    private User user = null;
+    private User user;
 
-    public Application(UserCenter userCenter, Console console, BookRepository bookRepository, Set<Book> customerBooks, List<Option> menu) {
+    public Application(UserCenter userCenter, Console console, BookRepository bookRepository, Set<Book> customerBooks) {
         this.userCenter = userCenter;
         this.console = console;
         this.bookRepository = bookRepository;
         this.customerBooks = customerBooks;
-        this.menu = menu;
     }
 
-    public Application(UserCenter userCenter, Console console, BookRepository bookRepository, Set<Book> customerBooks, List<Option> menu, Role role) {
-        this(userCenter, console, bookRepository, customerBooks, menu);
-        this.role = role;
+    public Application(UserCenter userCenter, Console console, BookRepository bookRepository, Set<Book> customerBooks, User user) {
+        this(userCenter, console, bookRepository, customerBooks);
+        this.user = user;
     }
 
     public void start() {
@@ -51,7 +48,7 @@ public class Application {
     }
 
     private boolean optionIsValid(int input) {
-        for (Option option : menu) {
+        for (Option option : user.getMenu()) {
             if (option.getId().equals(input)) {
                 option.execute(this);
                 return true;
@@ -61,10 +58,7 @@ public class Application {
     }
 
     public void displayMenusInfo() {
-        console.print("Please choose options as follow:");
-        for (Option option : menu) {
-            console.print(option.toString());
-        }
+        user.displayMenusInfo(console);
     }
 
     public void displayBookListInfo() {
@@ -170,5 +164,8 @@ public class Application {
             console.print("login failure");
             return false;
         }
+    }
+
+    public void showCheckoutBookForLibrian() {
     }
 }

@@ -39,7 +39,7 @@ public class ApplicationTest {
         user = new User("xxx-xxxx", "name", "password", "email", "phone");
         userCenter = new UserCenter(Collections.singletonList(user));
 
-        app = new Application(userCenter, console, bookRepository, customerBooks, initializeMenu());
+        app = new Application(userCenter, console, bookRepository, customerBooks, user);
         when(console.nextInt()).thenReturn(1);
     }
 
