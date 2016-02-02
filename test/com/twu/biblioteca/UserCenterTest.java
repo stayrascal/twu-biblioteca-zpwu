@@ -28,15 +28,15 @@ public class UserCenterTest {
     @Test
     public void should_return_true_when_login_success() throws Exception {
 
-        assertEquals(userCenter.login(user.getLibraryNumber(), user.getPassword()), true);
+        assertEquals(userCenter.login(user.getLibraryNumber(), user.getPassword()), user);
         assertEquals(userCenter.getLoginedUserSet().size(), 1);
     }
 
     @Test
     public void should_return_false_when_login_success() throws Exception {
 
-        assertEquals(userCenter.login(user.getLibraryNumber(), "wrong password"), false);
-        assertEquals(userCenter.login("not exist user", user.getPassword()), false);
+        assertEquals(userCenter.login(user.getLibraryNumber(), "wrong password"), null);
+        assertEquals(userCenter.login("not exist user", user.getPassword()), null);
         assertEquals(userCenter.getLoginedUserSet().size(), 0);
     }
 }

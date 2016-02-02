@@ -9,21 +9,25 @@ public class Application {
 
     private UserCenter userCenter;
     private Console console;
-    private BookList bookList;
     private BookRepository bookRepository;
     private Set<Book> customerBooks;
     private List<Option> menu;
-    private Boolean isContinue = Boolean.TRUE;
+    private Boolean isContinue = Boolean.FALSE;
+    private Role role = Role.CUSTOMER;
+    private User user = null;
 
-    public Application(UserCenter userCenter, Console console, BookList bookList, BookRepository bookRepository, Set<Book> customerBooks, List<Option> menu) {
+    public Application(UserCenter userCenter, Console console, BookRepository bookRepository, Set<Book> customerBooks, List<Option> menu) {
         this.userCenter = userCenter;
         this.console = console;
-        this.bookList = bookList;
         this.bookRepository = bookRepository;
         this.customerBooks = customerBooks;
         this.menu = menu;
     }
 
+    public Application(UserCenter userCenter, Console console, BookRepository bookRepository, Set<Book> customerBooks, List<Option> menu, Role role) {
+        this(userCenter, console, bookRepository, customerBooks, menu);
+        this.role = role;
+    }
 
     public void start() {
         displayWelcomeMessage();
@@ -32,6 +36,8 @@ public class Application {
 
     public void startByMenu() {
         displayWelcomeMessage();
+        login();
+
         while (isContinue) {
             displayMenusInfo();
             validateInput(console.nextInt());
@@ -63,7 +69,7 @@ public class Application {
 
     public void displayBookListInfo() {
         console.print("The Books in library as follow:");
-        for (Book book : bookList.getBooks()) {
+        for (Book book : bookRepository.getBookList().getBooks()) {
             console.print(book.toString());
         }
     }
@@ -156,8 +162,12 @@ public class Application {
         console.print("Please input your password:");
         String password = console.nextLine();
 
-        if (userCenter.login(libraryNumber, password)) {
+        user = userCenter.login(libraryNumber, password);
+
+        if (user != null) {
             console.print("login success");
+
+            isContinue = Boolean.TRUE;
             return true;
         } else {
             console.print("login failure");

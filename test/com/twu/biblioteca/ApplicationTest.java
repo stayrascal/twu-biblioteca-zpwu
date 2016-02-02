@@ -32,14 +32,14 @@ public class ApplicationTest {
         Book algebra = new Book(1, "algebra", "author1", "2012");
         Book computer = new Book(2, "computer", "author2", "2013");
         BookList bookList = new BookList(asList(algebra, computer));
-        BookRepository bookRepository = new BookRepository(asList(new BookStock(algebra, 1), new BookStock(computer, 1)));
+        BookRepository bookRepository = new BookRepository(asList(new BookStock(algebra, 1), new BookStock(computer, 1)), bookList);
 
         customerBooks = new TreeSet<>();
 
         user = new User("xxx-xxxx", "name", "password", "email", "phone");
         userCenter = new UserCenter(Collections.singletonList(user));
 
-        app = new Application(userCenter, console, bookList, bookRepository, customerBooks, initializeMenu());
+        app = new Application(userCenter, console, bookRepository, customerBooks, initializeMenu());
         when(console.nextInt()).thenReturn(1);
     }
 

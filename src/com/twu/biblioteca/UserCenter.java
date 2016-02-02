@@ -22,9 +22,12 @@ public class UserCenter {
         return loginedUserSet;
     }
 
-    public boolean login(String libraryNumber, String password) {
+    public User login(String libraryNumber, String password) {
         User user = getUser(libraryNumber);
-        return user != null && user.getPassword().equals(password) && loginedUserSet.add(user);
+        if (user != null && user.getPassword().equals(password) && loginedUserSet.add(user)) {
+            return user;
+        }
+        return null;
     }
 
     private User getUser(String libraryNumber) {

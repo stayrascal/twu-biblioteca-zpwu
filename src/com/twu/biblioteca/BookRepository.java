@@ -9,8 +9,15 @@ public class BookRepository {
 
     private final List<BookStock> bookRepository;
 
-    public BookRepository(List<BookStock> bookRepository) {
+    private final BookList bookList;
+
+    public BookRepository(List<BookStock> bookRepository, BookList bookList) {
         this.bookRepository = bookRepository;
+        this.bookList = bookList;
+    }
+
+    public BookList getBookList() {
+        return bookList;
     }
 
     public List<BookStock> getBooks() {
