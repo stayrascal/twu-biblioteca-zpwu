@@ -41,21 +41,11 @@ public class CheckoutBookLog {
 
     public boolean returnBook(User user, Book book) {
         Set<Book> userBookSet = userBooks.get(user.getLibraryNumber());
-        if (userBookSet == null || userBookSet.size() == 0) {
-            return false;
-        }
-        if (!userBookSet.remove(book)) {
+        Set<User> bookReaderSet = bookReaders.get(book.getIsbn());
+        if (userBookSet == null || !userBookSet.remove(book) || bookReaderSet == null || !bookReaderSet.remove(user)) {
             return false;
         }
         userBooks.put(user.getLibraryNumber(), userBookSet);
-
-        Set<User> bookReaderSet = bookReaders.get(book.getIsbn());
-        if (bookReaderSet == null) {
-            return false;
-        }
-        if (!bookReaderSet.remove(user)) {
-            return false;
-        }
         bookReaders.put(book.getIsbn(), bookReaderSet);
         return true;
     }

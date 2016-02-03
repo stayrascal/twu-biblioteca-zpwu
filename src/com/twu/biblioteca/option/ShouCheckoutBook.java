@@ -10,6 +10,6 @@ public class ShouCheckoutBook extends Option {
 
     @Override
     public void execute(Application app) {
-        app.showCheckoutBookForLibrian();
+        app.showCheckoutBookForLibrarian();
     }
 }

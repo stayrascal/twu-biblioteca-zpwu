@@ -2,9 +2,6 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.option.Option;
 
-import java.util.List;
-import java.util.Set;
-
 public class Application {
 
     private UserCenter userCenter;
@@ -43,12 +40,12 @@ public class Application {
     }
 
     public void validateInput(int input) {
-        if (!optionIsValid(input)) {
+        if (!optionIsValidAndThenExecute(input)) {
             console.print("Please select a valid option!");
         }
     }
 
-    private boolean optionIsValid(int input) {
+    private boolean optionIsValidAndThenExecute(int input) {
         for (Option option : user.getMenu()) {
             if (option.getId().equals(input)) {
                 option.execute(this);
@@ -92,10 +89,7 @@ public class Application {
         for (BookStock bookStock : bookRepository.getAvailableBooks()) {
             if (bookStock.getBook().getIsbn().equals(isbn)) {
                 bookStock.checkoutOne();
-                //customerBooks.add(bookStock.getBook());
-
                 checkoutBookLog.checkoutBook(user, bookStock.getBook());
-
                 console.print("Thank you! Enjoy the book!");
                 return true;
             }
@@ -104,7 +98,6 @@ public class Application {
     }
 
     public void displayCanReturnBooks() {
-        //if (customerBooks.size() < 1) {
         if (checkoutBookLog.getUserBooks(user).size() < 1) {
             console.print("Sorry, there is no book can been return!");
         } else {
@@ -115,7 +108,6 @@ public class Application {
 
     private void printCustomerBooksAndDealReturnBookInput() {
         checkoutBookLog.getUserBooks(user).forEach(book -> console.print(book.toString()));
-        //customerBooks.forEach(book -> console.print(book.toString()));
         returnBook(console.nextInt());
     }
 
@@ -128,9 +120,7 @@ public class Application {
     private boolean isReturnBookSuccessful(int isbn) {
         for (BookStock bookStock : bookRepository.getBooks()) {
             if (bookStock.getBook().getIsbn().equals(isbn)) {
-
                 removeBookFromCustomerBooks(bookStock.getBook());
-
                 bookStock.returnOneBook();
                 console.print("Thank you for returning the book.");
                 return true;
@@ -174,6 +164,6 @@ public class Application {
         }
     }
 
-    public void showCheckoutBookForLibrian() {
+    public void showCheckoutBookForLibrarian() {
     }
 }
