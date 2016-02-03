@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="453ea46c-eb6f-484f-96f0-75fa217b5830" name="Default" comment="l[ stayrascal ] refactor remove RoleEnum">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Application.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Application.java" />
+    <list default="true" id="453ea46c-eb6f-484f-96f0-75fa217b5830" name="Default" comment="l[ stayrascal ] refactor optimize code in method called returnBook">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/CheckoutBookLog.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/CheckoutBookLog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/option/ShouCheckoutBook.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/option/ShouCheckoutBook.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="biblioteca.iws" />
@@ -46,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Application.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="144" column="5" selection-start-line="144" selection-start-column="5" selection-end-line="144" selection-end-column="5" />
               <folding>
                 <element signature="e#1651#1652#0" expanded="true" />
                 <element signature="e#1697#1698#0" expanded="true" />
@@ -60,8 +58,8 @@
       <file leaf-file-name="CheckoutBookLog.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/CheckoutBookLog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9245961">
-              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.4344704">
+              <caret line="44" column="38" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -697,7 +695,7 @@
       <option name="number" value="Default" />
       <updated>1453899512750</updated>
       <workItem from="1453899510928" duration="39493000" />
-      <workItem from="1454330961644" duration="20688000" />
+      <workItem from="1454330961644" duration="21644000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1453899738695</created>
@@ -975,11 +973,17 @@
       <option name="project" value="LOCAL" />
       <updated>1454514910314</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="l[ stayrascal ] refactor optimize code in method called returnBook">
+      <created>1454515669513</created>
+      <option name="number" value="00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1454515669513</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60181000" />
+    <option name="totallyTimeSpent" value="61137000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1378" height="745" extended-state="0" />
@@ -1053,7 +1057,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[ stayrascal ] complete the test case about display thanks when customer quit" />
     <MESSAGE value="[ stayrascal ] add BookRepositoryTest" />
     <MESSAGE value="[ stayrascal ] add Main.java" />
     <MESSAGE value="[ stayrascal ] refactor extract method revoceBookFromCustomerBooks" />
@@ -1078,7 +1081,8 @@
     <MESSAGE value="[ stayrascal ] add test case about the librarian should have &quot;show checkouted book&quot;" />
     <MESSAGE value="l[ stayrascal ] refactor introduce Checkoutlog to replace customerBooks" />
     <MESSAGE value="l[ stayrascal ] refactor remove RoleEnum" />
-    <option name="LAST_COMMIT_MESSAGE" value="l[ stayrascal ] refactor remove RoleEnum" />
+    <MESSAGE value="l[ stayrascal ] refactor optimize code in method called returnBook" />
+    <option name="LAST_COMMIT_MESSAGE" value="l[ stayrascal ] refactor optimize code in method called returnBook" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1494,7 +1498,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="144" column="5" selection-start-line="144" selection-start-column="5" selection-end-line="144" selection-end-column="5" />
           <folding>
             <element signature="e#1651#1652#0" expanded="true" />
             <element signature="e#1697#1698#0" expanded="true" />
@@ -1506,8 +1510,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/CheckoutBookLog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9245961">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.4344704">
+          <caret line="44" column="38" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

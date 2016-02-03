@@ -22,21 +22,27 @@ public class CheckoutBookLog {
         return bookReaders.get(book.getIsbn()) == null ? new TreeSet<>() : bookReaders.get(book.getIsbn());
     }
 
-    public boolean checkoutBook(User user, Book book) {
-        Set<Book> userBookSet = userBooks.get(user.getLibraryNumber());
-        if (userBookSet == null || userBookSet.size() == 0) {
-            userBookSet = new TreeSet<>();
-        }
-        userBookSet.add(book);
-        userBooks.put(user.getLibraryNumber(), userBookSet);
+    public void checkoutBook(User user, Book book) {
+        updateUserBookSet(user, book);
+        updateBookReaderSet(user, book);
+    }
 
+    private void updateBookReaderSet(User user, Book book) {
         Set<User> bookReaderSet = bookReaders.get(book.getIsbn());
         if (bookReaderSet == null) {
             bookReaderSet = new TreeSet<>();
         }
         bookReaderSet.add(user);
         bookReaders.put(book.getIsbn(), bookReaderSet);
-        return true;
+    }
+
+    private void updateUserBookSet(User user, Book book) {
+        Set<Book> userBookSet = userBooks.get(user.getLibraryNumber());
+        if (userBookSet == null || userBookSet.size() == 0) {
+            userBookSet = new TreeSet<>();
+        }
+        userBookSet.add(book);
+        userBooks.put(user.getLibraryNumber(), userBookSet);
     }
 
     public boolean returnBook(User user, Book book) {
