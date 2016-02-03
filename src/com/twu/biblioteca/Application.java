@@ -10,19 +10,20 @@ public class Application {
     private UserCenter userCenter;
     private Console console;
     private BookRepository bookRepository;
-    private Set<Book> customerBooks;
-    private Boolean isContinue = Boolean.FALSE;
-    private User user;
 
-    public Application(UserCenter userCenter, Console console, BookRepository bookRepository, Set<Book> customerBooks) {
+    private User user;
+    private Boolean isContinue = Boolean.FALSE;
+    private CheckoutBookLog checkoutBookLog;
+
+    public Application(UserCenter userCenter, Console console, BookRepository bookRepository, CheckoutBookLog checkoutBookLog) {
         this.userCenter = userCenter;
         this.console = console;
         this.bookRepository = bookRepository;
-        this.customerBooks = customerBooks;
+        this.checkoutBookLog = checkoutBookLog;
     }
 
-    public Application(UserCenter userCenter, Console console, BookRepository bookRepository, Set<Book> customerBooks, User user) {
-        this(userCenter, console, bookRepository, customerBooks);
+    public Application(UserCenter userCenter, Console console, BookRepository bookRepository, CheckoutBookLog checkoutBookLog, User user) {
+        this(userCenter, console, bookRepository, checkoutBookLog);
         this.user = user;
     }
 
@@ -91,7 +92,10 @@ public class Application {
         for (BookStock bookStock : bookRepository.getAvailableBooks()) {
             if (bookStock.getBook().getIsbn().equals(isbn)) {
                 bookStock.checkoutOne();
-                customerBooks.add(bookStock.getBook());
+                //customerBooks.add(bookStock.getBook());
+
+                checkoutBookLog.checkoutBook(user, bookStock.getBook());
+
                 console.print("Thank you! Enjoy the book!");
                 return true;
             }
@@ -100,7 +104,8 @@ public class Application {
     }
 
     public void displayCanReturnBooks() {
-        if (customerBooks.size() < 1) {
+        //if (customerBooks.size() < 1) {
+        if (checkoutBookLog.getUserBooks(user).size() < 1) {
             console.print("Sorry, there is no book can been return!");
         } else {
             console.print("Which book do you want return:");
@@ -109,7 +114,8 @@ public class Application {
     }
 
     private void printCustomerBooksAndDealReturnBookInput() {
-        customerBooks.forEach(book -> console.print(book.toString()));
+        checkoutBookLog.getUserBooks(user).forEach(book -> console.print(book.toString()));
+        //customerBooks.forEach(book -> console.print(book.toString()));
         returnBook(console.nextInt());
     }
 
@@ -122,7 +128,9 @@ public class Application {
     private boolean isReturnBookSuccessful(int isbn) {
         for (BookStock bookStock : bookRepository.getBooks()) {
             if (bookStock.getBook().getIsbn().equals(isbn)) {
+
                 removeBookFromCustomerBooks(bookStock.getBook());
+
                 bookStock.returnOneBook();
                 console.print("Thank you for returning the book.");
                 return true;
@@ -132,7 +140,7 @@ public class Application {
     }
 
     private void removeBookFromCustomerBooks(Book book) {
-        if (!customerBooks.remove(book)) {
+        if (!checkoutBookLog.returnBook(user, book)) {
             console.print("That is not a valid book to return.");
         }
     }

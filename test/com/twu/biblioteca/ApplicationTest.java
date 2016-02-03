@@ -1,13 +1,10 @@
 package com.twu.biblioteca;
 
 
-import com.twu.biblioteca.option.*;
-import com.twu.biblioteca.option.Option;
 import com.twu.biblioteca.role.Librarian;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InOrder;
-
 
 import java.util.*;
 
@@ -20,9 +17,9 @@ public class ApplicationTest {
     private Console console;
     private Application app;
     private InOrder inOrder;
-    private Set<Book> customerBooks;
     private User user;
     private UserCenter userCenter;
+    private CheckoutBookLog checkoutBookLog;
 
     @Before
     public void setUp() throws Exception {
@@ -35,21 +32,13 @@ public class ApplicationTest {
         BookList bookList = new BookList(asList(algebra, computer));
         BookRepository bookRepository = new BookRepository(asList(new BookStock(algebra, 1), new BookStock(computer, 1)), bookList);
 
-        customerBooks = new TreeSet<>();
-
         user = new User("xxx-xxxx", "name", "password", "email", "phone");
         userCenter = new UserCenter(Collections.singletonList(user));
 
-        app = new Application(userCenter, console, bookRepository, customerBooks, user);
-        when(console.nextInt()).thenReturn(1);
-    }
+        checkoutBookLog = new CheckoutBookLog(new HashMap<>(), new HashMap<>());
 
-    private List<Option> initializeMenu() {
-        ListBooksOption listBooks = new ListBooksOption(1, "List Books");
-        CheckoutBookOption checkoutBook = new CheckoutBookOption(2, "Checkout Book");
-        ReturnBookOption returnBook = new ReturnBookOption(3, "Return Book");
-        QuitOption quit = new QuitOption(4, "Quit");
-        return asList(listBooks, checkoutBook, returnBook, quit);
+        app = new Application(userCenter, console, bookRepository, checkoutBookLog, user);
+        when(console.nextInt()).thenReturn(1);
     }
 
     @Test
@@ -123,8 +112,8 @@ public class ApplicationTest {
 
     @Test
     public void console_should_display_books_that_coustomer_can_return_when_choose_return_book_option() throws Exception {
-        customerBooks.add(new Book(1, "algebra", "author1", "2012"));
-        customerBooks.add(new Book(2, "computer", "author2", "2013"));
+        checkoutBookLog.checkoutBook(user, new Book(1, "algebra", "author1", "2012"));
+        checkoutBookLog.checkoutBook(user, new Book(2, "computer", "author2", "2013"));
         app.displayCanReturnBooks();
 
         inOrder.verify(console, times(1)).print("Which book do you want return:");
@@ -135,7 +124,7 @@ public class ApplicationTest {
 
     @Test
     public void console_should_display_successful_message_when_return_book_success() throws Exception {
-        customerBooks.add(new Book(1, "algebra", "author1", "2012"));
+        checkoutBookLog.checkoutBook(user, new Book(1, "algebra", "author1", "2012"));
         app.returnBook(1);
 
         inOrder.verify(console, times(1)).print("Thank you for returning the book.");
@@ -143,7 +132,7 @@ public class ApplicationTest {
 
     @Test
     public void console_should_display_notified_message_when_customer_return_invalid_book() throws Exception {
-        customerBooks.add(new Book(1, "algebra", "author1", "2012"));
+        checkoutBookLog.checkoutBook(user, new Book(1, "algebra", "author1", "2012"));
         app.returnBook(2);
 
         inOrder.verify(console, times(1)).print("That is not a valid book to return.");
@@ -151,8 +140,8 @@ public class ApplicationTest {
 
     @Test
     public void console_should_display_other_book_that_can_be_return_after_return_one_and_choose_return_book() throws Exception {
-        customerBooks.add(new Book(1, "algebra", "author1", "2012"));
-        customerBooks.add(new Book(2, "computer", "author2", "2013"));
+        checkoutBookLog.checkoutBook(user, new Book(1, "algebra", "author1", "2012"));
+        checkoutBookLog.checkoutBook(user, new Book(2, "computer", "author2", "2013"));
         app.returnBook(1);
 
         app.displayCanReturnBooks();
@@ -187,7 +176,7 @@ public class ApplicationTest {
         User user = new User("xxx-xxxx", "name", "password", "email", "phone", new Librarian());
         UserCenter userCenter = new UserCenter(Collections.singletonList(user));
 
-        app = new Application(userCenter, console, null, customerBooks, user);
+        app = new Application(userCenter, console, null, null, user);
 
         app.displayMenusInfo();
 
@@ -197,6 +186,5 @@ public class ApplicationTest {
         inOrder.verify(console, times(1)).print("3 Return Book");
         inOrder.verify(console, times(1)).print("4 Show checkouted book");
         inOrder.verify(console, times(1)).print("5 Quit");
-
     }
 }

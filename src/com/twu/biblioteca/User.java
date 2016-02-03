@@ -5,8 +5,9 @@ import com.twu.biblioteca.role.Customer;
 import com.twu.biblioteca.role.Role;
 
 import java.util.List;
+import java.util.Objects;
 
-public class User {
+public class User implements Comparable<User> {
 
     private final String userName;
     private final String email;
@@ -55,5 +56,19 @@ public class User {
 
     public void displayMenusInfo(Console console) {
         role.displayMenu(console);
+    }
+
+    @Override
+    public int compareTo(User user) {
+        if (user == null) {
+            return 1;
+        }
+        if (getLibraryNumber().compareToIgnoreCase(user.getLibraryNumber()) > 0) {
+            return 1;
+        } else if (Objects.equals(getLibraryNumber(), user.getLibraryNumber())) {
+            return 0;
+        } else {
+            return -1;
+        }
     }
 }
