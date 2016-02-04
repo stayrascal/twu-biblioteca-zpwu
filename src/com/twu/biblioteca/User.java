@@ -71,4 +71,9 @@ public class User implements Comparable<User> {
             return -1;
         }
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s %s %s", getLibraryNumber(), getUserName(), getEmail(), getPhoneNumber());
+    }
 }

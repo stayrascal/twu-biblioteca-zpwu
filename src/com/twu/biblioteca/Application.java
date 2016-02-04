@@ -2,6 +2,9 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.option.Option;
 
+import java.util.Map;
+import java.util.Set;
+
 public class Application {
 
     private UserCenter userCenter;
@@ -164,6 +167,19 @@ public class Application {
         }
     }
 
-    public void showCheckoutBookForLibrarian() {
+    public void displayCheckoutBookForLibrarian() {
+        Map<Integer, Set<User>> bookReaders = checkoutBookLog.getBookReaders();
+        for (Integer isbn : bookReaders.keySet()) {
+            String bookName = "";
+            for (Book book : bookRepository.getBookList().getBooks()) {
+                if (book.getIsbn().equals(isbn)) {
+                    bookName = book.getName();
+                }
+            }
+            Set<User> users = bookReaders.get(isbn);
+            for (User user : users) {
+                console.print(String.format("%s %s", bookName, user.toString()));
+            }
+        }
     }
 }

@@ -18,6 +18,10 @@ public class CheckoutBookLog {
         return userBooks.get(user.getLibraryNumber()) == null ? new TreeSet<>() : userBooks.get(user.getLibraryNumber());
     }
 
+    public Map<Integer, Set<User>> getBookReaders() {
+        return bookReaders;
+    }
+
     public Set<User> getBookReaders(Book book) {
         return bookReaders.get(book.getIsbn()) == null ? new TreeSet<>() : bookReaders.get(book.getIsbn());
     }

@@ -20,6 +20,9 @@ public class ApplicationTest {
     private User user;
     private UserCenter userCenter;
     private CheckoutBookLog checkoutBookLog;
+    private Book algebra;
+    private Book computer;
+    private BookList bookList;
 
     @Before
     public void setUp() throws Exception {
@@ -27,9 +30,9 @@ public class ApplicationTest {
         console = mock(Console.class);
         inOrder = inOrder(console);
 
-        Book algebra = new Book(1, "algebra", "author1", "2012");
-        Book computer = new Book(2, "computer", "author2", "2013");
-        BookList bookList = new BookList(asList(algebra, computer));
+        algebra = new Book(1, "algebra", "author1", "2012");
+        computer = new Book(2, "computer", "author2", "2013");
+        bookList = new BookList(asList(algebra, computer));
         BookRepository bookRepository = new BookRepository(asList(new BookStock(algebra, 1), new BookStock(computer, 1)), bookList);
 
         user = new User("xxx-xxxx", "name", "password", "email", "phone");
@@ -186,5 +189,22 @@ public class ApplicationTest {
         inOrder.verify(console, times(1)).print("3 Return Book");
         inOrder.verify(console, times(1)).print("4 Show checkouted book");
         inOrder.verify(console, times(1)).print("5 Quit");
+    }
+
+    @Test
+    public void console_should_display_two_user_who_are_checkout_this_book() throws Exception {
+        BookRepository bookRepository = new BookRepository(asList(new BookStock(algebra, 2), new BookStock(computer, 1)), bookList);
+
+        Application application = new Application(userCenter, console, bookRepository, checkoutBookLog, user);
+        application.checkoutBook(1);
+        application.checkoutBook(2);
+        //checkoutBookLog.checkoutBook(user, new Book(1, "algebra", "author1", "2012"));
+        checkoutBookLog.checkoutBook(new User("xxx-xxx1", "name1", "password1", "email1", "phone1"), new Book(1, "algebra", "author1", "2012"));
+
+        application.displayCheckoutBookForLibrarian();
+
+        inOrder.verify(console, times(1)).print("algebra xxx-xxx1 name1 email1 phone1");
+        inOrder.verify(console, times(1)).print("algebra xxx-xxxx name email phone");
+        inOrder.verify(console, times(1)).print("computer xxx-xxxx name email phone");
     }
 }
