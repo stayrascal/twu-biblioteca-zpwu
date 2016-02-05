@@ -28,7 +28,7 @@ public class Main {
 
         CheckoutBookLog checkoutBookLog = CheckoutBookLog.getCheckoutBookLog(new HashMap<>(), new HashMap<>());
 
-        Application app = new Application(userCenter, console, bookRepository, checkoutBookLog);
+        Application app = new Application(userCenter, console, bookRepository, null, checkoutBookLog);
 
         app.startByMenu();
     }

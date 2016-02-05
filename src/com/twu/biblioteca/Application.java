@@ -13,19 +13,22 @@ public class Application {
 
     private User user;
     private Boolean isContinue = Boolean.FALSE;
+    private MovieRepository movieRepository;
     private CheckoutBookLog checkoutBookLog;
 
-    public Application(UserCenter userCenter, Console console, BookRepository bookRepository, CheckoutBookLog checkoutBookLog) {
+    public Application(UserCenter userCenter, Console console, BookRepository bookRepository, MovieRepository movieRepository, CheckoutBookLog checkoutBookLog) {
         this.userCenter = userCenter;
         this.console = console;
         this.bookRepository = bookRepository;
+        this.movieRepository = movieRepository;
         this.checkoutBookLog = checkoutBookLog;
     }
 
-    public Application(UserCenter userCenter, Console console, BookRepository bookRepository, CheckoutBookLog checkoutBookLog, User user) {
-        this(userCenter, console, bookRepository, checkoutBookLog);
+    public Application(UserCenter userCenter, Console console, BookRepository bookRepository, MovieRepository movieRepository, CheckoutBookLog checkoutBookLog, User user) {
+        this(userCenter, console, bookRepository, movieRepository, checkoutBookLog);
         this.user = user;
     }
+
 
     public void start() {
         displayWelcomeMessage();
@@ -181,5 +184,9 @@ public class Application {
                 console.print(String.format("%s %s", bookName, user.toString()));
             }
         }
+    }
+
+    public void displayMovieList() {
+        movieRepository.displayMovieListInfo(console);
     }
 }

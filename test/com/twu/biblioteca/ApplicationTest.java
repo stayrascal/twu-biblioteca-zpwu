@@ -23,6 +23,9 @@ public class ApplicationTest {
     private Book algebra;
     private Book computer;
     private BookList bookList;
+    private Movie movie1;
+    private Movie movie2;
+    private MovieList movieList;
 
     @Before
     public void setUp() throws Exception {
@@ -30,19 +33,29 @@ public class ApplicationTest {
         console = mock(Console.class);
         inOrder = inOrder(console);
 
-        algebra = new Book(1, "algebra", "author1", "2012");
-        computer = new Book(2, "computer", "author2", "2013");
-        bookList = new BookList(asList(algebra, computer));
-        BookRepository bookRepository = BookRepository.getBookRepository(asList(new BookStock(algebra, 1), new BookStock(computer, 1)), bookList);
-
         user = new User("xxx-xxxx", "name", "password", "email", "phone");
         userCenter = new UserCenter(Collections.singletonList(user));
 
         checkoutBookLog = CheckoutBookLog.getCheckoutBookLog(new HashMap<>(), new HashMap<>());
 
-        app = new Application(userCenter, console, bookRepository, checkoutBookLog, user);
+        app = new Application(userCenter, console, getBookRepository(), getMovieRepository(), checkoutBookLog, user);
         when(console.nextInt()).thenReturn(1);
     }
+
+    private MovieRepository getMovieRepository() {
+        movie1 = new Movie(1, "movieName1", "movieDirector", 9.0f);
+        movie2 = new Movie(2, "movieName2", "movieDirector", 9.0f);
+        movieList = new MovieList(asList(movie1, movie2));
+        return MovieRepository.getMovieRepository(asList(new MovieStock(movie1, 1), new MovieStock(movie2, 1)), movieList);
+    }
+
+    private BookRepository getBookRepository() {
+        algebra = new Book(1, "algebra", "author1", "2012");
+        computer = new Book(2, "computer", "author2", "2013");
+        bookList = new BookList(asList(algebra, computer));
+        return BookRepository.getBookRepository(asList(new BookStock(algebra, 1), new BookStock(computer, 1)), bookList);
+    }
+
 
     @Test
     public void console_should_display_welcome_message_when_start_application() throws Exception {
@@ -182,7 +195,7 @@ public class ApplicationTest {
         User user = new User("xxx-xxxx", "name", "password", "email", "phone", new Librarian());
         UserCenter userCenter = new UserCenter(Collections.singletonList(user));
 
-        app = new Application(userCenter, console, null, null, user);
+        app = new Application(userCenter, console, null, null, null, user);
 
         app.displayMenusInfo();
 
@@ -198,7 +211,7 @@ public class ApplicationTest {
     public void console_should_display_two_user_who_are_checkout_this_book() throws Exception {
         BookRepository bookRepository = BookRepository.getBookRepository(asList(new BookStock(algebra, 2), new BookStock(computer, 1)), bookList);
 
-        Application application = new Application(userCenter, console, bookRepository, checkoutBookLog, user);
+        Application application = new Application(userCenter, console, bookRepository, null, checkoutBookLog, user);
         application.checkoutBook(1);
         application.checkoutBook(2);
         //checkoutBookLog.checkoutBook(user, new Book(1, "algebra", "author1", "2012"));
@@ -209,5 +222,15 @@ public class ApplicationTest {
         inOrder.verify(console, times(1)).print("algebra xxx-xxx1 name1 email1 phone1");
         inOrder.verify(console, times(1)).print("algebra xxx-xxxx name email phone");
         inOrder.verify(console, times(1)).print("computer xxx-xxxx name email phone");
+    }
+
+    @Test
+    public void console_should_display_movies_when_customer_choose_list_movie_option() throws Exception {
+
+        app.displayMovieList();
+
+        inOrder.verify(console, times(1)).print("The Movies in library as follow:");
+        inOrder.verify(console, times(1)).print("1 movieName1 2016 movieDirector 9.8");
+        inOrder.verify(console, times(1)).print("2 movieName2 2016 movieDirector 9.8");
     }
 }

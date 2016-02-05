@@ -20,7 +20,7 @@ public class BookRepositoryTest {
     }
 
     @Test
-    public void the_return_book_repositorys_should_be_same_when_create_two_times() throws Exception {
+    public void the_return_book_repository_should_be_same_when_create_two_times() throws Exception {
         Book algebra = new Book(1, "algebra", "author1", "2012");
         Book computer = new Book(2, "computer", "author2", "2013");
         BookList bookList = new BookList(asList(algebra, computer));
