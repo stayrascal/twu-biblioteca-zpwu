@@ -2,9 +2,9 @@ package com.twu.biblioteca.option;
 
 import com.twu.biblioteca.Application;
 
-public class ShouCheckoutBook extends Option {
+public class ShowCheckoutBook extends Option {
 
-    public ShouCheckoutBook(Integer id, String name) {
+    public ShowCheckoutBook(Integer id, String name) {
         super(id, name);
     }
 

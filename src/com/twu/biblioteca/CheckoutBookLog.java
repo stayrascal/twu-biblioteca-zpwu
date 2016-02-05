@@ -6,12 +6,21 @@ import java.util.TreeSet;
 
 public class CheckoutBookLog {
 
-    private Map<String, Set<Book>> userBooks;
-    private Map<Integer, Set<User>> bookReaders;
+    private static CheckoutBookLog checkoutBookLog;
 
-    public CheckoutBookLog(Map<String, Set<Book>> userBooks, Map<Integer, Set<User>> bookReaders) {
-        this.userBooks = userBooks;
-        this.bookReaders = bookReaders;
+    private static Map<String, Set<Book>> userBooks;
+    private static Map<Integer, Set<User>> bookReaders;
+
+    private CheckoutBookLog(Map<String, Set<Book>> userBooks, Map<Integer, Set<User>> bookReaders) {
+        CheckoutBookLog.userBooks = userBooks;
+        CheckoutBookLog.bookReaders = bookReaders;
+    }
+
+    public static CheckoutBookLog getCheckoutBookLog(Map<String, Set<Book>> userBooks, Map<Integer, Set<User>> bookReaders) {
+        if (checkoutBookLog == null) {
+            checkoutBookLog = new CheckoutBookLog(userBooks, bookReaders);
+        }
+        return checkoutBookLog;
     }
 
     public Set<Book> getUserBooks(User user) {

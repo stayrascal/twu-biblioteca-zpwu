@@ -157,7 +157,7 @@ public class Application {
         user = userCenter.login(libraryNumber, password);
 
         if (user != null) {
-            console.print("login success");
+            console.print(String.format("%s login success", user.getUserName()));
 
             isContinue = Boolean.TRUE;
             return true;

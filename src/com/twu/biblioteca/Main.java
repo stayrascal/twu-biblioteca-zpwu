@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 
 import com.twu.biblioteca.option.*;
+import com.twu.biblioteca.role.Librarian;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -13,21 +14,21 @@ import static java.util.Arrays.asList;
 public class Main {
 
     public static void main(String[] args) {
-        Main main = new Main();
 
         Book algebra = new Book(1, "algebra", "author1", "2012");
         Book computer = new Book(2, "computer", "author2", "2013");
         BookList bookList = new BookList(asList(algebra, computer));
-        BookRepository bookRepository = new BookRepository(asList(new BookStock(algebra, 1), new BookStock(computer, 1)), bookList);
+        BookRepository bookRepository = BookRepository.getBookRepository(asList(new BookStock(algebra, 2), new BookStock(computer, 1)), bookList);
 
         Console console = new Console(new BufferedReader(new InputStreamReader(System.in)), new PrintStream(System.out));
 
-        User user = new User("xxx-xxxx", "name", "password", "email", "phone");
-        UserCenter userCenter = new UserCenter(Collections.singletonList(user));
+        User customer = new User("xxx-xxxx", "customer", "password", "email", "phone");
+        User librarian = new User("xxx-xxx1", "librarian", "password", "email", "phone", new Librarian());
+        UserCenter userCenter = new UserCenter(asList(customer, librarian));
 
-        CheckoutBookLog checkoutBookLog = new CheckoutBookLog(new HashMap<>(), new HashMap<>());
+        CheckoutBookLog checkoutBookLog = CheckoutBookLog.getCheckoutBookLog(new HashMap<>(), new HashMap<>());
 
-        Application app = new Application(userCenter, console, bookRepository, checkoutBookLog, user);
+        Application app = new Application(userCenter, console, bookRepository, checkoutBookLog);
 
         app.startByMenu();
     }

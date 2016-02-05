@@ -7,13 +7,22 @@ import java.util.stream.Collectors;
 
 public class BookRepository {
 
-    private final List<BookStock> bookRepository;
+    private static BookRepository bookRepository;
 
-    private final BookList bookList;
+    private static List<BookStock> bookRepositoryList;
 
-    public BookRepository(List<BookStock> bookRepository, BookList bookList) {
-        this.bookRepository = bookRepository;
-        this.bookList = bookList;
+    private static BookList bookList;
+
+    private BookRepository(List<BookStock> bookRepositoryList, BookList bookList) {
+        BookRepository.bookRepositoryList = bookRepositoryList;
+        BookRepository.bookList = bookList;
+    }
+
+    public static BookRepository getBookRepository(List<BookStock> initializeBookRepository, BookList bookList) {
+        if (bookRepository == null) {
+            bookRepository = new BookRepository(initializeBookRepository, bookList);
+        }
+        return bookRepository;
     }
 
     public BookList getBookList() {
@@ -21,11 +30,11 @@ public class BookRepository {
     }
 
     public List<BookStock> getBooks() {
-        return bookRepository;
+        return bookRepositoryList;
     }
 
     public List<BookStock> getAvailableBooks() {
-        return bookRepository.stream().filter(BookStock::isCanCheckout).collect(Collectors.toCollection(ArrayList::new));
+        return bookRepositoryList.stream().filter(BookStock::isCanCheckout).collect(Collectors.toCollection(ArrayList::new));
     }
 
     public void displayBookListInfo(Console console) {
