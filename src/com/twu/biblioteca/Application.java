@@ -192,4 +192,21 @@ public class Application {
             console.print(movieStock.toString());
         }
     }
+
+    public void checkoutMovie(int movieId) {
+        if (!isCheckoutMovieSuccess(movieId)) {
+            console.print(String.format("checkout movie %d failure.", movieId));
+        }
+    }
+
+    private boolean isCheckoutMovieSuccess(int movieId) {
+        for (MovieStock movieStock : movieRepository.getAvailableMovieList()) {
+            if (movieStock.getMovie().getId() == movieId) {
+                movieStock.checkoutOne();
+                console.print(String.format("%s checkout success. Enjoy the movie.", movieStock.getMovie().getName()));
+                return true;
+            }
+        }
+        return false;
+    }
 }

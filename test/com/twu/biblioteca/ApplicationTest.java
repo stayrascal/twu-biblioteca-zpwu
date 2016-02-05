@@ -233,4 +233,13 @@ public class ApplicationTest {
         inOrder.verify(console, times(1)).print("1 movieName1 2016 movieDirector 9.0 1");
         inOrder.verify(console, times(1)).print("2 movieName2 2016 movieDirector 9.0 1");
     }
+
+    @Test
+    public void console_should_display_success_message_when_checkout_movie_success() throws Exception {
+
+        app.checkoutMovie(2);
+
+        inOrder.verify(console, times(1)).print("movieName2 checkout success. Enjoy the movie.");
+
+    }
 }
