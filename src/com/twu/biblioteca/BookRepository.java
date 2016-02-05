@@ -40,4 +40,5 @@ public class BookRepository {
     public void displayBookListInfo(Console console) {
         bookList.displayBookListInfo(console);
     }
+
 }

@@ -225,12 +225,12 @@ public class ApplicationTest {
     }
 
     @Test
-    public void console_should_display_movies_when_customer_choose_list_movie_option() throws Exception {
+    public void console_should_display_movies_that_can_be_checkout_when_customer_choose_list_movie_option() throws Exception {
 
-        app.displayMovieList();
+        app.displayAvailableMovieList();
 
-        inOrder.verify(console, times(1)).print("The Movies in library as follow:");
-        inOrder.verify(console, times(1)).print("1 movieName1 2016 movieDirector 9.0");
-        inOrder.verify(console, times(1)).print("2 movieName2 2016 movieDirector 9.0");
+        inOrder.verify(console, times(1)).print("Which movie do you want checkout:");
+        inOrder.verify(console, times(1)).print("1 movieName1 2016 movieDirector 9.0 1");
+        inOrder.verify(console, times(1)).print("2 movieName2 2016 movieDirector 9.0 1");
     }
 }

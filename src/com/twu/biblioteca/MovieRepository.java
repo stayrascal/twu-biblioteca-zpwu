@@ -1,6 +1,8 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MovieRepository {
 
@@ -23,5 +25,9 @@ public class MovieRepository {
 
     public void displayMovieListInfo(Console console) {
         movieList.displayMovieListInfo(console);
+    }
+
+    public List<MovieStock> getAvailableMovieList() {
+        return movieStocks.stream().filter(MovieStock::isCanCheckout).collect(Collectors.toCollection(ArrayList::new));
     }
 }

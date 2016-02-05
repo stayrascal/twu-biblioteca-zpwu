@@ -186,7 +186,10 @@ public class Application {
         }
     }
 
-    public void displayMovieList() {
-        movieRepository.displayMovieListInfo(console);
+    public void displayAvailableMovieList() {
+        console.print("Which movie do you want checkout:");
+        for (MovieStock movieStock : movieRepository.getAvailableMovieList()) {
+            console.print(movieStock.toString());
+        }
     }
 }

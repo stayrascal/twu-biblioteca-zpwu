@@ -33,4 +33,9 @@ public class MovieStock {
     public boolean isCanCheckout() {
         return getQuantity() > 0;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s %d", movie.toString(), getQuantity());
+    }
 }
