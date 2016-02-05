@@ -30,10 +30,13 @@ public class ApplicationTest {
         console = mock(Console.class);
         inOrder = inOrder(console);
 
-        checkoutBookLog = CheckoutBookLog.getCheckoutBookLog(new HashMap<>(), new HashMap<>());
-
-        app = new Application(getUserCenter(), console, getBookRepository(), getMovieRepository(), checkoutBookLog, user);
+        app = new Application(getUserCenter(), console, getBookRepository(), getMovieRepository(), getCheckoutBookLog(), user);
         when(console.nextInt()).thenReturn(1);
+    }
+
+    private CheckoutBookLog getCheckoutBookLog() {
+        checkoutBookLog = CheckoutBookLog.getCheckoutBookLog(new HashMap<>(), new HashMap<>());
+        return checkoutBookLog;
     }
 
     private UserCenter getUserCenter() {
