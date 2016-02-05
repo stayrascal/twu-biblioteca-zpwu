@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="453ea46c-eb6f-484f-96f0-75fa217b5830" name="Default" comment="l[ stayrascal ] add test case about show available movie list">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Application.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Application.java" />
+    <list default="true" id="453ea46c-eb6f-484f-96f0-75fa217b5830" name="Default" comment="l[ stayrascal ] add test case about checkout movie">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/ApplicationTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/ApplicationTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -29,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Application.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4344704">
-              <caret line="197" column="59" selection-start-line="197" selection-start-column="59" selection-end-line="197" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="195" column="9" selection-start-line="195" selection-start-column="9" selection-end-line="195" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -94,23 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MovieTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/MovieTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="79" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="79" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApplicationTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ApplicationTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/ApplicationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="241" column="94" selection-start-line="241" selection-start-column="60" selection-end-line="241" selection-end-column="94" />
+            <state vertical-scroll-proportion="0.9245961">
+              <caret line="248" column="65" selection-start-line="248" selection-start-column="65" selection-end-line="248" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -176,8 +163,8 @@
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/BookRepository.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/MovieRepository.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/MovieStock.java" />
-        <option value="$PROJECT_DIR$/test/com/twu/biblioteca/ApplicationTest.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/Application.java" />
+        <option value="$PROJECT_DIR$/test/com/twu/biblioteca/ApplicationTest.java" />
       </list>
     </option>
   </component>
@@ -712,13 +699,7 @@
       <workItem from="1453899510928" duration="39493000" />
       <workItem from="1454330961644" duration="26851000" />
       <workItem from="1454654394648" duration="4158000" />
-      <workItem from="1454661331063" duration="5784000" />
-    </task>
-    <task id="LOCAL-00005" summary="[ stayrascal ] refactor extract method displayWelcomeMessage and displayBookListInfo">
-      <created>1453905590925</created>
-      <option name="number" value="00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1453905590925</updated>
+      <workItem from="1454661331063" duration="5969000" />
     </task>
     <task id="LOCAL-00006" summary="[ stayrascal ] add a attribute called isbn into book">
       <created>1453906210117</created>
@@ -1008,11 +989,17 @@
       <option name="project" value="LOCAL" />
       <updated>1454667562098</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="l[ stayrascal ] add test case about checkout movie">
+      <created>1454668163716</created>
+      <option name="number" value="00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1454668163717</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76286000" />
+    <option name="totallyTimeSpent" value="76471000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="745" extended-state="0" />
@@ -1086,7 +1073,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[ stayrascal ] refactor extract method printAvailableBooksAndDealCheckoutBookInput&#10;" />
     <MESSAGE value="[ stayrascal ] refactor extract method isCheckoutBookSuccessful&#10;" />
     <MESSAGE value="[ stayrascal ] refactor extract method isReturnBookSuccessful&#10;" />
     <MESSAGE value="[ stayrascal ] refactor extract method optionIsValid&#10;" />
@@ -1111,7 +1097,8 @@
     <MESSAGE value="l[ stayrascal ] add test case about Movie toString method" />
     <MESSAGE value="l[ stayrascal ] add test case about show movie list" />
     <MESSAGE value="l[ stayrascal ] add test case about show available movie list" />
-    <option name="LAST_COMMIT_MESSAGE" value="l[ stayrascal ] add test case about show available movie list" />
+    <MESSAGE value="l[ stayrascal ] add test case about checkout movie" />
+    <option name="LAST_COMMIT_MESSAGE" value="l[ stayrascal ] add test case about checkout movie" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1567,20 +1554,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/ApplicationTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="241" column="94" selection-start-line="241" selection-start-column="60" selection-end-line="241" selection-end-column="94" />
+          <caret line="195" column="9" selection-start-line="195" selection-start-column="9" selection-end-line="195" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Application.java">
+    <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/ApplicationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4344704">
-          <caret line="197" column="59" selection-start-line="197" selection-start-column="59" selection-end-line="197" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.9245961">
+          <caret line="248" column="65" selection-start-line="248" selection-start-column="65" selection-end-line="248" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

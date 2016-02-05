@@ -240,6 +240,13 @@ public class ApplicationTest {
         app.checkoutMovie(2);
 
         inOrder.verify(console, times(1)).print("movieName2 checkout success. Enjoy the movie.");
+    }
+
+    @Test
+    public void console_should_notified_wrong_message_when_checkout_movie_failure() throws Exception {
+
+        app.checkoutMovie(3);
+        inOrder.verify(console, times(1)).print("checkout movie 3 failure.");
 
     }
 }
