@@ -82,13 +82,14 @@ public class ApplicationTest {
         inOrder.verify(console, times(1)).print("1 List Books");
         inOrder.verify(console, times(1)).print("2 Checkout Book");
         inOrder.verify(console, times(1)).print("3 Return Book");
-        inOrder.verify(console, times(1)).print("4 Quit");
+        inOrder.verify(console, times(1)).print("4 Checkout Movie");
+        inOrder.verify(console, times(1)).print("5 Quit");
     }
 
     @Test
     public void console_should_notified_select_a_valid_opetion_when_customer_choose_wrong() throws Exception {
 
-        app.validateInput(5);
+        app.validateInput(0);
         inOrder.verify(console, times(1)).print("Please select a valid option!");
     }
 
@@ -204,7 +205,8 @@ public class ApplicationTest {
         inOrder.verify(console, times(1)).print("2 Checkout Book");
         inOrder.verify(console, times(1)).print("3 Return Book");
         inOrder.verify(console, times(1)).print("4 Show checkouted book");
-        inOrder.verify(console, times(1)).print("5 Quit");
+        inOrder.verify(console, times(1)).print("5 Checkout Movie");
+        inOrder.verify(console, times(1)).print("6 Quit");
     }
 
     @Test
@@ -246,7 +248,7 @@ public class ApplicationTest {
     public void console_should_notified_wrong_message_when_checkout_movie_failure() throws Exception {
 
         app.checkoutMovie(3);
-        inOrder.verify(console, times(1)).print("checkout movie 3 failure.");
+        inOrder.verify(console, times(1)).print("That movie is not available.");
 
     }
 }

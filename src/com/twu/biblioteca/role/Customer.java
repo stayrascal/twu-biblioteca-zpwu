@@ -19,8 +19,9 @@ public class Customer implements Role {
         ListBooksOption listBooks = new ListBooksOption(1, "List Books");
         CheckoutBookOption checkoutBook = new CheckoutBookOption(2, "Checkout Book");
         ReturnBookOption returnBook = new ReturnBookOption(3, "Return Book");
-        QuitOption quit = new QuitOption(4, "Quit");
-        return asList(listBooks, checkoutBook, returnBook, quit);
+        CheckoutMovieOption checkoutMovie = new CheckoutMovieOption(4, "Checkout Movie");
+        QuitOption quit = new QuitOption(5, "Quit");
+        return asList(listBooks, checkoutBook, returnBook, checkoutMovie, quit);
     }
 
     @Override

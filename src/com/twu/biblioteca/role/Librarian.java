@@ -20,8 +20,9 @@ public class Librarian implements Role {
         CheckoutBookOption checkoutBook = new CheckoutBookOption(2, "Checkout Book");
         ReturnBookOption returnBook = new ReturnBookOption(3, "Return Book");
         ShowCheckoutBook showCheckoutBook = new ShowCheckoutBook(4, "Show checkouted book");
-        QuitOption quit = new QuitOption(5, "Quit");
-        return asList(listBooks, checkoutBook, returnBook, showCheckoutBook, quit);
+        CheckoutMovieOption checkoutMovie = new CheckoutMovieOption(5, "Checkout Movie");
+        QuitOption quit = new QuitOption(6, "Quit");
+        return asList(listBooks, checkoutBook, returnBook, showCheckoutBook, checkoutMovie, quit);
     }
 
     @Override

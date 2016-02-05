@@ -191,11 +191,12 @@ public class Application {
         for (MovieStock movieStock : movieRepository.getAvailableMovieList()) {
             console.print(movieStock.toString());
         }
+        checkoutMovie(console.nextInt());
     }
 
     public void checkoutMovie(int movieId) {
         if (!isCheckoutMovieSuccess(movieId)) {
-            console.print(String.format("checkout movie %d failure.", movieId));
+            console.print("That movie is not available.");
         }
     }
 
