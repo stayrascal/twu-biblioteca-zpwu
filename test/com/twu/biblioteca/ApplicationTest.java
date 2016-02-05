@@ -43,8 +43,8 @@ public class ApplicationTest {
     }
 
     private MovieRepository getMovieRepository() {
-        movie1 = new Movie(1, "movieName1", "movieDirector", 9.0f);
-        movie2 = new Movie(2, "movieName2", "movieDirector", 9.0f);
+        movie1 = new Movie(1, "movieName1", 2016, "movieDirector", 9.0f);
+        movie2 = new Movie(2, "movieName2", 2016, "movieDirector", 9.0f);
         movieList = new MovieList(asList(movie1, movie2));
         return MovieRepository.getMovieRepository(asList(new MovieStock(movie1, 1), new MovieStock(movie2, 1)), movieList);
     }
@@ -230,7 +230,7 @@ public class ApplicationTest {
         app.displayMovieList();
 
         inOrder.verify(console, times(1)).print("The Movies in library as follow:");
-        inOrder.verify(console, times(1)).print("1 movieName1 2016 movieDirector 9.8");
-        inOrder.verify(console, times(1)).print("2 movieName2 2016 movieDirector 9.8");
+        inOrder.verify(console, times(1)).print("1 movieName1 2016 movieDirector 9.0");
+        inOrder.verify(console, times(1)).print("2 movieName2 2016 movieDirector 9.0");
     }
 }

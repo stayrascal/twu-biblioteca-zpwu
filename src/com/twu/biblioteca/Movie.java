@@ -6,12 +6,14 @@ public class Movie implements Comparable<Movie> {
 
     private final int id;
     private final String name;
+    private final int year;
     private final String director;
     private final String rating;
 
-    public Movie(int id, String name, String director, float rating) {
+    public Movie(int id, String name, int year, String director, float rating) {
         this.id = id;
         this.name = name;
+        this.year = year;
         this.director = director;
         if (rating > 10) {
             this.rating = "10.0";
@@ -34,13 +36,17 @@ public class Movie implements Comparable<Movie> {
         return director;
     }
 
+    public int getYear() {
+        return year;
+    }
+
     public String getRating() {
         return rating;
     }
 
     @Override
     public String toString() {
-        return String.format("%d %s %s %s", getId(), getName(), getDirector(), getRating());
+        return String.format("%d %s %d %s %s", getId(), getName(), getYear(), getDirector(), getRating());
     }
 
     @Override
