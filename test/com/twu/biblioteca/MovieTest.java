@@ -15,6 +15,12 @@ public class MovieTest {
         assertEquals(movie2.compareTo(movie2), 0);
         assertEquals(movie1.compareTo(movie2), -1);
         assertEquals(movie1.compareTo(null), 1);
+    }
 
+    @Test
+    public void should_return_right_movie_information() throws Exception {
+        Movie movie1 = new Movie(1, "movieName1", "movieDirector", 9.0f);
+
+        assertEquals(movie1.toString(), "1 movieName1 movieDirector 9.0");
     }
 }

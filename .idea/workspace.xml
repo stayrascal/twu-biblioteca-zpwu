@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="453ea46c-eb6f-484f-96f0-75fa217b5830" name="Default" comment="l[ stayrascal ] add test case the librarian look who checkout books">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Movie.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/MovieList.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/MovieRepository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/MovieStock.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/MovieTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Application.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/ApplicationTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/ApplicationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/BookRepositoryTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/BookRepositoryTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Main.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Main.java" />
+    <list default="true" id="453ea46c-eb6f-484f-96f0-75fa217b5830" name="Default" comment="l[ stayrascal ] add test case about Movie Compare">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/MovieTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/MovieTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="biblioteca.iws" />
@@ -55,7 +47,7 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
-                <element signature="e#734#735#0" expanded="true" />
+                <element signature="e#736#737#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -76,8 +68,8 @@
       <file leaf-file-name="MovieTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/MovieTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7567568">
-              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.8738739">
+              <caret line="23" column="74" selection-start-line="23" selection-start-column="74" selection-end-line="23" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -747,13 +739,7 @@
       <workItem from="1453899510928" duration="39493000" />
       <workItem from="1454330961644" duration="26851000" />
       <workItem from="1454654394648" duration="4158000" />
-      <workItem from="1454661331063" duration="3365000" />
-    </task>
-    <task id="LOCAL-00001" summary="Initial commit">
-      <created>1453899738695</created>
-      <option name="number" value="00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1453899738695</updated>
+      <workItem from="1454661331063" duration="3510000" />
     </task>
     <task id="LOCAL-00002" summary="[ stayrascal ] complete the test case about seeing a welcome message when start application">
       <created>1453901685091</created>
@@ -1043,11 +1029,17 @@
       <option name="project" value="LOCAL" />
       <updated>1454570109162</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="l[ stayrascal ] add test case about Movie Compare">
+      <created>1454664731037</created>
+      <option name="number" value="00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1454664731037</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73867000" />
+    <option name="totallyTimeSpent" value="74012000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="745" extended-state="0" />
@@ -1121,7 +1113,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[ stayrascal ] refactor extract method revoceBookFromCustomerBooks" />
     <MESSAGE value="[ stayrascal ] hidden out folder" />
     <MESSAGE value="[ stayrascal ] add .idea folder" />
     <MESSAGE value="[ stayrascal ] add workspace.xml&#10;" />
@@ -1146,7 +1137,8 @@
     <MESSAGE value="l[ stayrascal ] refactor optimize code in method called returnBook" />
     <MESSAGE value="l[ stayrascal ] refactor extract method updateUserBookSet and updatebookReaderSet" />
     <MESSAGE value="l[ stayrascal ] add test case the librarian look who checkout books" />
-    <option name="LAST_COMMIT_MESSAGE" value="l[ stayrascal ] add test case the librarian look who checkout books" />
+    <MESSAGE value="l[ stayrascal ] add test case about Movie Compare" />
+    <option name="LAST_COMMIT_MESSAGE" value="l[ stayrascal ] add test case about Movie Compare" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1521,7 +1513,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
-            <element signature="e#734#735#0" expanded="true" />
+            <element signature="e#736#737#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1611,8 +1603,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/MovieTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7567568">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.8738739">
+          <caret line="23" column="74" selection-start-line="23" selection-start-column="74" selection-end-line="23" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
