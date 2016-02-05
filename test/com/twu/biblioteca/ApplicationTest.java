@@ -23,9 +23,6 @@ public class ApplicationTest {
     private Book algebra;
     private Book computer;
     private BookList bookList;
-    private Movie movie1;
-    private Movie movie2;
-    private MovieList movieList;
 
     @Before
     public void setUp() throws Exception {
@@ -33,19 +30,22 @@ public class ApplicationTest {
         console = mock(Console.class);
         inOrder = inOrder(console);
 
-        user = new User("xxx-xxxx", "name", "password", "email", "phone");
-        userCenter = new UserCenter(Collections.singletonList(user));
-
         checkoutBookLog = CheckoutBookLog.getCheckoutBookLog(new HashMap<>(), new HashMap<>());
 
-        app = new Application(userCenter, console, getBookRepository(), getMovieRepository(), checkoutBookLog, user);
+        app = new Application(getUserCenter(), console, getBookRepository(), getMovieRepository(), checkoutBookLog, user);
         when(console.nextInt()).thenReturn(1);
     }
 
+    private UserCenter getUserCenter() {
+        user = new User("xxx-xxxx", "name", "password", "email", "phone");
+        userCenter = new UserCenter(Collections.singletonList(user));
+        return userCenter;
+    }
+
     private MovieRepository getMovieRepository() {
-        movie1 = new Movie(1, "movieName1", 2016, "movieDirector", 9.0f);
-        movie2 = new Movie(2, "movieName2", 2016, "movieDirector", 9.0f);
-        movieList = new MovieList(asList(movie1, movie2));
+        Movie movie1 = new Movie(1, "movieName1", 2016, "movieDirector", 9.0f);
+        Movie movie2 = new Movie(2, "movieName2", 2016, "movieDirector", 9.0f);
+        MovieList movieList = new MovieList(asList(movie1, movie2));
         return MovieRepository.getMovieRepository(asList(new MovieStock(movie1, 1), new MovieStock(movie2, 1)), movieList);
     }
 
