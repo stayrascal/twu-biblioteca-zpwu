@@ -151,23 +151,25 @@ public class Application {
     }
 
     public boolean login() {
-        console.print("Please input your library number:");
-        String libraryNumber = console.nextLine();
-
-        console.print("Please input your password:");
-        String password = console.nextLine();
-
-        user = userCenter.login(libraryNumber, password);
-
+        user = userCenter.login(getLibraryNumberFromUserInput(), getPasswordFromUserInput());
         if (user != null) {
             console.print(String.format("%s login success", user.getUserName()));
-
             isContinue = Boolean.TRUE;
             return true;
         } else {
             console.print("login failure");
             return false;
         }
+    }
+
+    private String getPasswordFromUserInput() {
+        console.print("Please input your password:");
+        return console.nextLine();
+    }
+
+    private String getLibraryNumberFromUserInput() {
+        console.print("Please input your library number:");
+        return console.nextLine();
     }
 
     public void displayCheckoutBookForLibrarian() {
