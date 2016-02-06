@@ -6,12 +6,20 @@ import java.util.Set;
 
 public class UserCenter {
 
+    private static UserCenter userCenter;
     private final List<User> userList;
     private Set<User> loginedUserSet;
 
-    public UserCenter(List<User> userList) {
+    private UserCenter(List<User> userList) {
         this.userList = userList;
         loginedUserSet = new HashSet<>();
+    }
+
+    public static UserCenter getUserCenter(List<User> userList) {
+        if (userCenter == null) {
+            userCenter = new UserCenter(userList);
+        }
+        return userCenter;
     }
 
     public List<User> getUserList() {

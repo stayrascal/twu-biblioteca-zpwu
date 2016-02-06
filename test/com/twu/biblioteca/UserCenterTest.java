@@ -15,8 +15,7 @@ public class UserCenterTest {
     @Before
     public void setUp() throws Exception {
         user = new User("xxx-xxxx", "name", "password", "email", "phone");
-        userCenter = new UserCenter(Collections.singletonList(user));
-
+        userCenter = UserCenter.getUserCenter(Collections.singletonList(user));
     }
 
     @Test

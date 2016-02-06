@@ -41,7 +41,7 @@ public class ApplicationTest {
 
     private UserCenter getUserCenter() {
         user = new User("xxx-xxxx", "name", "password", "email", "phone");
-        userCenter = new UserCenter(Collections.singletonList(user));
+        userCenter = UserCenter.getUserCenter(Collections.singletonList(user));
         return userCenter;
     }
 
@@ -197,7 +197,7 @@ public class ApplicationTest {
     @Test
     public void console_should_display_five_option_when_librarian_login() throws Exception {
         User user = new User("xxx-xxxx", "name", "password", "email", "phone", new Librarian());
-        UserCenter userCenter = new UserCenter(Collections.singletonList(user));
+        UserCenter userCenter = UserCenter.getUserCenter(Collections.singletonList(user));
 
         app = new Application(userCenter, console, null, null, null, user);
 

@@ -29,7 +29,7 @@ public class Main {
     private static UserCenter getUserCenter() {
         User customer = new User("xxx-xxxx", "customer", "password", "email", "phone");
         User librarian = new User("xxx-xxx1", "librarian", "password", "email", "phone", new Librarian());
-        return new UserCenter(asList(customer, librarian));
+        return UserCenter.getUserCenter(asList(customer, librarian));
     }
 
     private static MovieRepository getMovieRepository() {

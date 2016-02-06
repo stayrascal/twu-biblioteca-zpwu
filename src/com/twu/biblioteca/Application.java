@@ -187,7 +187,16 @@ public class Application {
     }
 
     public void displayAvailableMovieList() {
-        console.print("Which movie do you want checkout:");
+        if (movieRepository.getAvailableMovieList().size() < 1) {
+            console.print("Sorry, there is no available movie");
+        } else {
+            console.print("Which movie do you want checkout:");
+            displayAvailableMovieListAndDealInput();
+        }
+
+    }
+
+    private void displayAvailableMovieListAndDealInput() {
         for (MovieStock movieStock : movieRepository.getAvailableMovieList()) {
             console.print(movieStock.toString());
         }
