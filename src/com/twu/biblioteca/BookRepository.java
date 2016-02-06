@@ -41,4 +41,7 @@ public class BookRepository {
         bookList.displayBookListInfo(console);
     }
 
+    public String getBookNameByIsbn(Integer isbn) {
+        return bookList.getBookNameByIsbn(isbn);
+    }
 }

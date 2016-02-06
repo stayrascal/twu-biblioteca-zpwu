@@ -23,4 +23,13 @@ public class BookList {
             console.print(book.toString());
         }
     }
+
+    public String getBookNameByIsbn(Integer isbn) {
+        for (Book book : books) {
+            if (book.getIsbn().equals(isbn)) {
+                return book.getName();
+            }
+        }
+        return null;
+    }
 }

@@ -173,15 +173,9 @@ public class Application {
     public void displayCheckoutBookForLibrarian() {
         Map<Integer, Set<User>> bookReaders = checkoutBookLog.getBookReaders();
         for (Integer isbn : bookReaders.keySet()) {
-            String bookName = "";
-            for (Book book : bookRepository.getBookList().getBooks()) {
-                if (book.getIsbn().equals(isbn)) {
-                    bookName = book.getName();
-                }
-            }
             Set<User> users = bookReaders.get(isbn);
             for (User user : users) {
-                console.print(String.format("%s %s", bookName, user.toString()));
+                console.print(String.format("%s %s", bookRepository.getBookNameByIsbn(isbn), user.toString()));
             }
         }
     }
