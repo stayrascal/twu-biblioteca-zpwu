@@ -6,6 +6,7 @@ import com.twu.biblioteca.movie.Movie;
 import com.twu.biblioteca.repository.BookRepository;
 import com.twu.biblioteca.resource.MovieList;
 import com.twu.biblioteca.repository.MovieRepository;
+import com.twu.biblioteca.resource.ResourceList;
 import com.twu.biblioteca.stock.MovieStock;
 import com.twu.biblioteca.resource.BookList;
 import com.twu.biblioteca.role.Librarian;
@@ -30,7 +31,7 @@ public class ApplicationTest {
     private CheckoutBookLog checkoutBookLog;
     private Book algebra;
     private Book computer;
-    private BookList bookList;
+    private ResourceList<Book> bookList;
 
     @Before
     public void setUp() throws Exception {
@@ -56,7 +57,7 @@ public class ApplicationTest {
     private MovieRepository getMovieRepository() {
         Movie movie1 = new Movie(1, "movieName1", 2016, "movieDirector", 9.0f);
         Movie movie2 = new Movie(2, "movieName2", 2016, "movieDirector", 9.0f);
-        MovieList movieList = new MovieList(asList(movie1, movie2));
+        ResourceList<Movie> movieList = new MovieList(asList(movie1, movie2));
         return MovieRepository.getMovieRepository(asList(new MovieStock(movie1, 1), new MovieStock(movie2, 1)), movieList);
     }
 
@@ -109,8 +110,8 @@ public class ApplicationTest {
         app.disPlayAvailableBooks();
 
         inOrder.verify(console, times(1)).print("Which book do you want check out:");
-        inOrder.verify(console, times(1)).print("1 algebra author1 2012");
-        inOrder.verify(console, times(1)).print("2 computer author2 2013");
+        inOrder.verify(console, times(1)).print("1 algebra author1 2012 1");
+        inOrder.verify(console, times(1)).print("2 computer author2 2013 2");
     }
 
     @Test
@@ -138,7 +139,7 @@ public class ApplicationTest {
         app.disPlayAvailableBooks();
 
         inOrder.verify(console, times(1)).print("Which book do you want check out:");
-        inOrder.verify(console, times(1)).print("2 computer author2 2013");
+        inOrder.verify(console, times(1)).print("2 computer author2 2013 2");
     }
 
     @Test

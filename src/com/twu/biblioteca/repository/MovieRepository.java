@@ -2,7 +2,6 @@ package com.twu.biblioteca.repository;
 
 import com.twu.biblioteca.Console;
 import com.twu.biblioteca.movie.Movie;
-import com.twu.biblioteca.resource.MovieList;
 import com.twu.biblioteca.resource.ResourceList;
 import com.twu.biblioteca.stock.Stock;
 
@@ -16,13 +15,13 @@ public class MovieRepository implements Repository<Movie> {
     private List<Stock<Movie>> movieStocks;
     private ResourceList<Movie> movieList;
 
-    private MovieRepository(List<Stock<Movie>> movieStocks, MovieList movieList) {
+    private MovieRepository(List<Stock<Movie>> movieStocks, ResourceList<Movie> movieList) {
 
         this.movieStocks = movieStocks;
         this.movieList = movieList;
     }
 
-    public static MovieRepository getMovieRepository(List<Stock<Movie>> movieStocks, MovieList movieList) {
+    public static MovieRepository getMovieRepository(List<Stock<Movie>> movieStocks, ResourceList<Movie> movieList) {
         if (movieRepository == null) {
             movieRepository = new MovieRepository(movieStocks, movieList);
         }

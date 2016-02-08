@@ -3,7 +3,6 @@ package com.twu.biblioteca.repository;
 
 import com.twu.biblioteca.Console;
 import com.twu.biblioteca.book.Book;
-import com.twu.biblioteca.resource.BookList;
 import com.twu.biblioteca.resource.ResourceList;
 import com.twu.biblioteca.stock.Stock;
 
@@ -17,12 +16,12 @@ public class BookRepository implements Repository<Book> {
     private List<Stock<Book>> bookRepositoryList;
     private ResourceList<Book> bookList;
 
-    private BookRepository(List<Stock<Book>> bookRepositoryList, BookList bookList) {
+    private BookRepository(List<Stock<Book>> bookRepositoryList, ResourceList<Book> bookList) {
         this.bookRepositoryList = bookRepositoryList;
         this.bookList = bookList;
     }
 
-    public static BookRepository getBookRepository(List<Stock<Book>> initializeBookRepository, BookList bookList) {
+    public static BookRepository getBookRepository(List<Stock<Book>> initializeBookRepository, ResourceList<Book> bookList) {
         if (bookRepository == null) {
             bookRepository = new BookRepository(initializeBookRepository, bookList);
         }
