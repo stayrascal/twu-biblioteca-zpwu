@@ -1,16 +1,40 @@
 package com.twu.biblioteca.stock;
 
-public interface Stock<T> {
+public abstract class Stock<T> {
 
-    T getEntity();
+    private final T resource;
+    private int quantity;
 
-    int getQuantity();
+    public Stock(T resource, int quantity) {
+        this.resource = resource;
+        this.quantity = quantity;
+    }
 
-    boolean checkoutOne();
+    public T getResource() {
+        return resource;
+    }
 
-    boolean isCanCheckout();
+    public int getQuantity() {
+        return quantity;
+    }
 
-    String toString();
+    public boolean checkoutOne() {
+        if (getQuantity() < 1) {
+            return false;
+        }
+        quantity--;
+        return true;
+    }
 
-    void returnOneResource();
+    public boolean isCanCheckout() {
+        return getQuantity() > 0;
+    }
+
+    public String toString() {
+        return String.format("%s %d", getResource().toString(), getQuantity());
+    }
+
+    public void returnOneResource() {
+        quantity++;
+    }
 }

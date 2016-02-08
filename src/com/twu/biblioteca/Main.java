@@ -5,9 +5,10 @@ import com.twu.biblioteca.book.*;
 import com.twu.biblioteca.movie.Movie;
 import com.twu.biblioteca.resource.MovieList;
 import com.twu.biblioteca.movie.MovieRepository;
-import com.twu.biblioteca.movie.MovieStock;
+import com.twu.biblioteca.stock.MovieStock;
 import com.twu.biblioteca.resource.BookList;
 import com.twu.biblioteca.role.Librarian;
+import com.twu.biblioteca.stock.BookStock;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

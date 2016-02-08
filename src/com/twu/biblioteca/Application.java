@@ -90,7 +90,7 @@ public class Application {
         //for (BookStock bookStock : bookRepository.getAvailableBooks()) {
         for (Stock<Book> bookStock : bookRepository.getAvailableResourceStockList()) {
             //console.print(bookStock.getBook().toString());
-            console.print(bookStock.getEntity().toString());
+            console.print(bookStock.getResource().toString());
         }
         checkoutBook(console.nextInt());
     }
@@ -104,9 +104,9 @@ public class Application {
     private boolean isCheckoutBookSuccessful(int isbn) {
         //for (BookStock bookStock : bookRepository.getAvailableBooks()) {
         for (Stock<Book> bookStock : bookRepository.getAvailableResourceStockList()) {
-            if (bookStock.getEntity().getIsbn().equals(isbn)) {
+            if (bookStock.getResource().getIsbn().equals(isbn)) {
                 bookStock.checkoutOne();
-                checkoutBookLog.checkoutBook(user, bookStock.getEntity());
+                checkoutBookLog.checkoutBook(user, bookStock.getResource());
                 console.print("Thank you! Enjoy the book!");
                 return true;
             }
@@ -143,8 +143,8 @@ public class Application {
     private boolean isReturnBookSuccessful(int isbn) {
         //for (BookStock bookStock : bookRepository.getBooks()) {
         for (Stock<Book> bookStock : bookRepository.getResourceStockList()) {
-            if (bookStock.getEntity().getIsbn().equals(isbn)) {
-                removeBookFromCustomerBooks(bookStock.getEntity());
+            if (bookStock.getResource().getIsbn().equals(isbn)) {
+                removeBookFromCustomerBooks(bookStock.getResource());
                 //bookStock.returnOneBook();
                 bookStock.returnOneResource();
                 console.print("Thank you for returning the book.");
@@ -237,9 +237,9 @@ public class Application {
     private boolean isCheckoutMovieSuccess(int movieId) {
         //for (MovieStock movieStock : movieRepository.getAvailableMovieList()) {
         for (Stock<Movie> movieStock : movieRepository.getAvailableResourceStockList()) {
-            if (movieStock.getEntity().getId() == movieId) {
+            if (movieStock.getResource().getId() == movieId) {
                 movieStock.checkoutOne();
-                console.print(String.format("%s checkout success. Enjoy the movie.", movieStock.getEntity().getName()));
+                console.print(String.format("%s checkout success. Enjoy the movie.", movieStock.getResource().getName()));
                 return true;
             }/*if (movieStock.getMovie().getId() == movieId) {
                 movieStock.checkoutOne();

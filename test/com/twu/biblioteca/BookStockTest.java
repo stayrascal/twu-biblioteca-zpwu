@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 
 import com.twu.biblioteca.book.Book;
-import com.twu.biblioteca.book.BookStock;
+import com.twu.biblioteca.stock.BookStock;
 import org.junit.Before;
 import org.junit.Test;
 
