@@ -3,8 +3,9 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.book.*;
 import com.twu.biblioteca.movie.Movie;
+import com.twu.biblioteca.repository.BookRepository;
 import com.twu.biblioteca.resource.MovieList;
-import com.twu.biblioteca.movie.MovieRepository;
+import com.twu.biblioteca.repository.MovieRepository;
 import com.twu.biblioteca.stock.MovieStock;
 import com.twu.biblioteca.resource.BookList;
 import com.twu.biblioteca.role.Librarian;

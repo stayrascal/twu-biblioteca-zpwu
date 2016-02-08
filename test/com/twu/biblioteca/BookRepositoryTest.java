@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.book.Book;
 import com.twu.biblioteca.resource.BookList;
-import com.twu.biblioteca.book.BookRepository;
+import com.twu.biblioteca.repository.BookRepository;
 import com.twu.biblioteca.stock.BookStock;
 import org.junit.Test;
 

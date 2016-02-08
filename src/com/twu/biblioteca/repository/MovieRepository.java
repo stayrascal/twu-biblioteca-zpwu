@@ -1,7 +1,7 @@
-package com.twu.biblioteca.movie;
+package com.twu.biblioteca.repository;
 
 import com.twu.biblioteca.Console;
-import com.twu.biblioteca.repository.Repository;
+import com.twu.biblioteca.movie.Movie;
 import com.twu.biblioteca.resource.MovieList;
 import com.twu.biblioteca.resource.ResourceList;
 import com.twu.biblioteca.stock.Stock;
@@ -28,26 +28,6 @@ public class MovieRepository implements Repository<Movie> {
         }
         return movieRepository;
     }
-    /*private MovieRepository(List<MovieStock> movieStocks, MovieList movieList) {
-
-        this.movieStocks = movieStocks;
-        this.movieList = movieList;
-    }
-
-    public static MovieRepository getMovieRepository(List<MovieStock> movieStocks, MovieList movieList) {
-        if (movieRepository == null) {
-            movieRepository = new MovieRepository(movieStocks, movieList);
-        }
-        return movieRepository;
-    }*/
-
-    /*public void displayMovieListInfo(Console console) {
-        movieList.displayMovieListInfo(console);
-    }*/
-
-    /*public List<MovieStock> getAvailableMovieList() {
-        return movieStocks.stream().filter(MovieStock::isCanCheckout).collect(Collectors.toCollection(ArrayList::new));
-    }*/
 
     @Override
     public void displayResourceListInfo(Console console) {

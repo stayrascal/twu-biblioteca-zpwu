@@ -1,10 +1,10 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.book.Book;
-import com.twu.biblioteca.book.BookRepository;
+import com.twu.biblioteca.repository.BookRepository;
 import com.twu.biblioteca.book.CheckoutBookLog;
 import com.twu.biblioteca.movie.Movie;
-import com.twu.biblioteca.movie.MovieRepository;
+import com.twu.biblioteca.repository.MovieRepository;
 import com.twu.biblioteca.option.Option;
 import com.twu.biblioteca.stock.Stock;
 
