@@ -1,6 +1,12 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.book.BookRepository;
+import com.twu.biblioteca.book.CheckoutBookLog;
+import com.twu.biblioteca.movie.Movie;
+import com.twu.biblioteca.movie.MovieRepository;
 import com.twu.biblioteca.option.Option;
+import com.twu.biblioteca.stock.Stock;
 
 import java.util.Map;
 import java.util.Set;
@@ -66,11 +72,13 @@ public class Application {
     }
 
     public void displayBookListInfo() {
-        bookRepository.displayBookListInfo(console);
+        //bookRepository.displayBookListInfo(console);
+        bookRepository.displayResourceListInfo(console);
     }
 
     public void disPlayAvailableBooks() {
-        if (bookRepository.getAvailableBooks().size() < 1) {
+        //if (bookRepository.getAvailableBooks().size() < 1) {
+        if (bookRepository.getAvailableResourceStockList().size() < 1) {
             console.print("Sorry, there is no book can been checkout!");
         } else {
             console.print("Which book do you want check out:");
@@ -79,8 +87,10 @@ public class Application {
     }
 
     private void printAvailableBooksAndDealCheckoutBookInput() {
-        for (BookStock bookStock : bookRepository.getAvailableBooks()) {
-            console.print(bookStock.getBook().toString());
+        //for (BookStock bookStock : bookRepository.getAvailableBooks()) {
+        for (Stock<Book> bookStock : bookRepository.getAvailableResourceStockList()) {
+            //console.print(bookStock.getBook().toString());
+            console.print(bookStock.getEntity().toString());
         }
         checkoutBook(console.nextInt());
     }
@@ -92,13 +102,20 @@ public class Application {
     }
 
     private boolean isCheckoutBookSuccessful(int isbn) {
-        for (BookStock bookStock : bookRepository.getAvailableBooks()) {
-            if (bookStock.getBook().getIsbn().equals(isbn)) {
+        //for (BookStock bookStock : bookRepository.getAvailableBooks()) {
+        for (Stock<Book> bookStock : bookRepository.getAvailableResourceStockList()) {
+            if (bookStock.getEntity().getIsbn().equals(isbn)) {
+                bookStock.checkoutOne();
+                checkoutBookLog.checkoutBook(user, bookStock.getEntity());
+                console.print("Thank you! Enjoy the book!");
+                return true;
+            }
+            /*if (bookStock.getBook().getIsbn().equals(isbn)) {
                 bookStock.checkoutOne();
                 checkoutBookLog.checkoutBook(user, bookStock.getBook());
                 console.print("Thank you! Enjoy the book!");
                 return true;
-            }
+            }*/
         }
         return false;
     }
@@ -124,13 +141,21 @@ public class Application {
     }
 
     private boolean isReturnBookSuccessful(int isbn) {
-        for (BookStock bookStock : bookRepository.getBooks()) {
-            if (bookStock.getBook().getIsbn().equals(isbn)) {
+        //for (BookStock bookStock : bookRepository.getBooks()) {
+        for (Stock<Book> bookStock : bookRepository.getResourceStockList()) {
+            if (bookStock.getEntity().getIsbn().equals(isbn)) {
+                removeBookFromCustomerBooks(bookStock.getEntity());
+                //bookStock.returnOneBook();
+                bookStock.returnOneResource();
+                console.print("Thank you for returning the book.");
+                return true;
+            }
+            /*if (bookStock.getBook().getIsbn().equals(isbn)) {
                 removeBookFromCustomerBooks(bookStock.getBook());
                 bookStock.returnOneBook();
                 console.print("Thank you for returning the book.");
                 return true;
-            }
+            }*/
         }
         return false;
     }
@@ -177,13 +202,15 @@ public class Application {
         for (Integer isbn : bookReaders.keySet()) {
             Set<User> users = bookReaders.get(isbn);
             for (User user : users) {
-                console.print(String.format("%s %s", bookRepository.getBookNameByIsbn(isbn), user.toString()));
+                //console.print(String.format("%s %s", bookRepository.getBookNameByIsbn(isbn), user.toString()));
+                console.print(String.format("%s %s", bookRepository.getResourceNameById(isbn), user.toString()));
             }
         }
     }
 
     public void displayAvailableMovieList() {
-        if (movieRepository.getAvailableMovieList().size() < 1) {
+        //if (movieRepository.getAvailableMovieList().size() < 1) {
+        if (movieRepository.getAvailableResourceStockList().size() < 1) {
             console.print("Sorry, there is no available movie");
         } else {
             console.print("Which movie do you want checkout:");
@@ -193,7 +220,8 @@ public class Application {
     }
 
     private void displayAvailableMovieListAndDealInput() {
-        for (MovieStock movieStock : movieRepository.getAvailableMovieList()) {
+        //for (MovieStock movieStock : movieRepository.getAvailableMovieList()) {
+        for (Stock movieStock : movieRepository.getAvailableResourceStockList()) {
             console.print(movieStock.toString());
         }
         checkoutMovie(console.nextInt());
@@ -201,17 +229,23 @@ public class Application {
 
     public void checkoutMovie(int movieId) {
         if (!isCheckoutMovieSuccess(movieId)) {
+
             console.print("That movie is not available.");
         }
     }
 
     private boolean isCheckoutMovieSuccess(int movieId) {
-        for (MovieStock movieStock : movieRepository.getAvailableMovieList()) {
-            if (movieStock.getMovie().getId() == movieId) {
+        //for (MovieStock movieStock : movieRepository.getAvailableMovieList()) {
+        for (Stock<Movie> movieStock : movieRepository.getAvailableResourceStockList()) {
+            if (movieStock.getEntity().getId() == movieId) {
+                movieStock.checkoutOne();
+                console.print(String.format("%s checkout success. Enjoy the movie.", movieStock.getEntity().getName()));
+                return true;
+            }/*if (movieStock.getMovie().getId() == movieId) {
                 movieStock.checkoutOne();
                 console.print(String.format("%s checkout success. Enjoy the movie.", movieStock.getMovie().getName()));
                 return true;
-            }
+            }*/
         }
         return false;
     }

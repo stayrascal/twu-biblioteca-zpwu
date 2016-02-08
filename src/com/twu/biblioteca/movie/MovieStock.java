@@ -1,6 +1,8 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.movie;
 
-public class MovieStock {
+import com.twu.biblioteca.stock.Stock;
+
+public class MovieStock implements Stock<Movie> {
 
     private final Movie movie;
     private int quantity;
@@ -10,7 +12,12 @@ public class MovieStock {
         this.quantity = quantity;
     }
 
-    public Movie getMovie() {
+    /*public Movie getMovie() {
+        return movie;
+    }*/
+
+    @Override
+    public Movie getEntity() {
         return movie;
     }
 
@@ -26,10 +33,6 @@ public class MovieStock {
         return true;
     }
 
-    public void returnOneMovie() {
-        quantity++;
-    }
-
     public boolean isCanCheckout() {
         return getQuantity() > 0;
     }
@@ -37,5 +40,10 @@ public class MovieStock {
     @Override
     public String toString() {
         return String.format("%s %d", movie.toString(), getQuantity());
+    }
+
+    @Override
+    public void returnOneResource() {
+        quantity++;
     }
 }

@@ -1,7 +1,8 @@
 package com.twu.biblioteca;
 
 
-import org.junit.Assert;
+import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.book.BookStock;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -29,15 +30,16 @@ public class BookStockTest {
     public void the_algebra_number_should_be_0_after_checkouted() throws Exception {
         bookStock.checkoutOne();
 
-        assertEquals(bookStock.getNumber(), 0);
+        assertEquals(bookStock.getQuantity(), 0);
         assertEquals(bookStock.isCanCheckout(), false);
     }
 
     @Test
     public void the_algebra_number_should_be_2_after_return_one() throws Exception {
-        bookStock.returnOneBook();
+        //bookStock.returnOneBook();
+        bookStock.returnOneResource();
 
-        assertEquals(bookStock.getNumber(), 2);
+        assertEquals(bookStock.getQuantity(), 2);
 
     }
 }

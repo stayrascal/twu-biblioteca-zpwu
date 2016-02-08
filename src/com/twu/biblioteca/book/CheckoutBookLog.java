@@ -1,4 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.book;
+
+import com.twu.biblioteca.User;
 
 import java.util.Map;
 import java.util.Set;

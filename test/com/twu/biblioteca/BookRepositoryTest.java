@@ -1,6 +1,10 @@
 package com.twu.biblioteca;
 
 
+import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.resource.BookList;
+import com.twu.biblioteca.book.BookRepository;
+import com.twu.biblioteca.book.BookStock;
 import org.junit.Test;
 
 import static java.util.Arrays.asList;
@@ -15,8 +19,10 @@ public class BookRepositoryTest {
         BookList bookList = new BookList(asList(algebra, computer));
         BookRepository bookRepository = BookRepository.getBookRepository(asList(new BookStock(algebra, 1), new BookStock(computer, 0)), bookList);
 
-        assertEquals(bookRepository.getAvailableBooks().size(), 1);
-        assertEquals(bookRepository.getAvailableBooks().get(0).getBook().getName(), "algebra");
+        //assertEquals(bookRepository.getAvailableBooks().size(), 1);
+        assertEquals(bookRepository.getAvailableResourceStockList().size(), 1);
+        //assertEquals(bookRepository.getAvailableBooks().get(0).getBook().getName(), "algebra");
+        assertEquals(bookRepository.getAvailableResourceStockList().get(0).getEntity().getName(), "algebra");
     }
 
     @Test
